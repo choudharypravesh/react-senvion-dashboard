@@ -1,0 +1,46 @@
+[
+  {
+    "type": "MD70",
+    "value": 1500
+  },
+  {
+    "type": "MD77",
+    "value": 1500
+  },
+  {
+    "type": "MM70",
+    "value": 2000
+  },
+  {
+    "type": "MM82",
+    "value": 2050
+  },
+  {
+    "type": "MM92",
+    "value": 2050
+  },
+  {
+    "type": "MM100",
+    "value": 2000
+  },
+  {
+    "type": "3.0M",
+    "value": 3000
+  },
+  {
+    "type": "3.2M",
+    "value": 3200
+  },
+  {
+    "type": "3.4M",
+    "value": 3400
+  },
+  {
+    "type": "5M",
+    "value": 5075
+  },
+  {
+    "type": "6M",
+    "value": 6150
+  }
+]

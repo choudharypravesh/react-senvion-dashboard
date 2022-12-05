@@ -1,0 +1,82 @@
+.anamolies-comparasions-container {
+
+}
+
+.anamolies-comparasions-container .chip {
+    padding: 8px 8px;
+    cursor: pointer;
+    font-size: 22px;
+    color:#333;
+}
+
+.anamolies-comparasions-container .back-button {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.anamolies-comparasions-container .padding-right-left-2 {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.anamolies-comparasions-container .btn .caret {
+    display: inline-block;
+}
+
+.anamolies-comparasions-container .charts-wrapper {
+    padding: 2% 1%;
+}
+
+.anamolies-comparasions-container .details-block {
+    margin-top: 2%;
+    padding: 2% 1%;
+    width: 60%;
+}
+
+.anamolies-comparasions-container .details-block table td {
+    text-align: left !important;
+}
+
+
+.anamolies-comparasions-container .details-block table td:nth-child(2) {
+    color: #333 !important;
+}
+
+
+.anamolies-comparasions-container .date-go-button {
+    margin-top: 8px;
+}
+
+.anamolies-comparasions-container .Select {
+    width: 120px;
+}
+
+.anamolies-comparasions-container .details-block {
+}
+
+
+.anamolies-comparasions-container .chip {
+    padding: 8px 8px;
+    cursor: pointer;
+    font-size: 22px;
+    color:#333;
+}
+
+.anamolies-comparasions-container .back-button {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.anamolies-comparasions-container .DateInput {
+    padding: 0px;
+    background: none;
+}
+
+.anamolies-comparasions-container .DateRangePickerInput {
+    border-radius: 4px;
+}
+
+.anamolies-comparasions-container .DateInput__display-text {
+    font-size: 15px;
+    text-align: center;
+}

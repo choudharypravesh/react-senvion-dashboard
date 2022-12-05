@@ -1,0 +1,24 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var Constants = {
+    //General
+    LOADING: 'loading',
+    LOADED: 'loaded',
+    NODATA: 'nodata',
+    //Dashboard
+    DASHBOARD_LOADING: 'dashboard_loading',
+    DASHBOARD_LOADED: 'dashboard_loaded',
+    DASHBOARD_NODATA: 'dashboard_nodata',
+    DASHBOARD_ALERTSTIME_DATA: 'dashboard_alerts_time',
+    DASHBOARD_AVAILABILITY_DATA: 'dashboard_availability_data',
+    ALERT_COUNT_DATA: 'alerts_count_data',
+    BEST_FARMS_DATA: 'best_farms_data',
+    BEST_TURBINES_DATA: 'best_turbine_data',
+    WORST_FARMS_DATA: 'worst_farms_data',
+    WORST_TURBINES_DATA: 'worst_turbine_data',
+    //Fleet
+    CHANGE_FLEET_TAB: "change_fleet_tab",
+    CHANGE_FLEET_CHARTS: 'change_fleet_charts',
+    GET_ALERTS_DATA: 'get_alerts_data',
+    GET_FLEET_DATA: 'get_fleet_data',
+    SET_DATES: 'set_dates' };exports.default =
+
+Constants;

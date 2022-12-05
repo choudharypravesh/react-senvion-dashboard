@@ -1,0 +1,199 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _xhr = require('xhr');var _xhr2 = _interopRequireDefault(_xhr);
+var _reactBootstrap = require('react-bootstrap');
+var _Portfolio = require('../../../../public/styles/containers/portfolio/Portfolio.css');var _Portfolio2 = _interopRequireDefault(_Portfolio);
+var _PortfolioGraphs = require('./PortfolioGraphs');var _PortfolioGraphs2 = _interopRequireDefault(_PortfolioGraphs);
+require('react-dates/lib/css/_datepicker.css');
+var _moment = require('moment');var _moment2 = _interopRequireDefault(_moment);
+var _reactVirtualizedSelect = require('react-virtualized-select');var _reactVirtualizedSelect2 = _interopRequireDefault(_reactVirtualizedSelect);
+require('react-virtualized-select/styles.css');
+var _reactRouter = require('react-router');
+var _plusCircle = require('react-icons/lib/fa/plus-circle');var _plusCircle2 = _interopRequireDefault(_plusCircle);
+var _axios = require('axios');var _axios2 = _interopRequireDefault(_axios);
+var _underscore = require('underscore');var _underscore2 = _interopRequireDefault(_underscore);
+var _CustomDatePicker = require('../../../components/CustomDatePicker/CustomDatePicker');var _CustomDatePicker2 = _interopRequireDefault(_CustomDatePicker);
+var _classnames = require('classnames');var _classnames2 = _interopRequireDefault(_classnames);
+var _LineGraphs = require('./LineGraphs');var _LineGraphs2 = _interopRequireDefault(_LineGraphs);
+var _Loader = require('../../../components/Loader/Loader');var _Loader2 = _interopRequireDefault(_Loader);
+var _AppActions = require('../../../actions/AppActions');var _AppActions2 = _interopRequireDefault(_AppActions);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}
+
+function getTitle(selectedChart) {
+    switch (selectedChart) {
+        case 8:return "Offshore";
+        case 7:return "Onshore";
+        case 1:return "Americas";
+        case 2:return "Australia";
+        case 5:return "EU South East";
+        case 3:return "EU Central";
+        case 4:return "EU North";
+        case 6:return "EU South West";}
+
+}var
+AvailabilityTime = function (_React$Component) {_inherits(AvailabilityTime, _React$Component);
+    function AvailabilityTime(props) {_classCallCheck(this, AvailabilityTime);var _this = _possibleConstructorReturn(this, (AvailabilityTime.__proto__ || Object.getPrototypeOf(AvailabilityTime)).call(this,
+        props));
+
+
+
+        _this.allData = _this.allData.bind(_this);
+        _this.handleDateChangeFinal = _this.handleDateChangeFinal.bind(_this);
+        _this.handleDateChangeInitial = _this.handleDateChangeInitial.bind(_this);
+        _this.reloadGraphs = _this.reloadGraphs.bind(_this);
+        _this.updateDate = _this.updateDate.bind(_this);
+        _this.selectChart = _this.selectChart.bind(_this);return _this;
+    }_createClass(AvailabilityTime, [{ key: 'componentDidMount', value: function componentDidMount()
+
+        {
+
+            this.allData();
+            this.selectChart(this.props.data.get('selectedChart'));
+        } }, { key: 'allData', value: function allData(
+
+        start, end) {
+            var dataAll = {
+                start_date: start ? start : this.props.data.get('initialDate'),
+                end_date: end ? end : this.props.data.get('finalDate'),
+                ranking: false,
+                level: 'hub',
+                variable: "pba",
+                id: 9 };
+
+            var selectedTab = this.props.data.get('selectedTab');
+            this.props.getFleetData(dataAll, selectedTab);
+        } }, { key: 'reloadGraphs', value: function reloadGraphs()
+        {
+            var start = this.props.data.get('initialDate');
+            var end = this.props.data.get('finalDate');
+            this.allData(start, end);
+            this.selectChart(this.props.data.get('selectedChart'));
+        } }, { key: 'handleDateChangeInitial', value: function handleDateChangeInitial(
+
+
+        value, formattedValue) {
+            var self = this;
+            var dateArray = formattedValue.toString().split("/");
+            var date = dateArray[2] + "-" + dateArray[0] + "-" + dateArray[1];
+            var date2 = dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0];
+            this.props.setAlertDates(date2, this.props.data.get('finalDate'));
+        } }, { key: 'handleDateChangeFinal', value: function handleDateChangeFinal(
+
+
+        value, formattedValue) {
+            var self = this;
+            var dateArray = formattedValue.toString().split("/");
+            var date = dateArray[2] + "-" + dateArray[0] + "-" + dateArray[1];
+            var date2 = dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0];
+            this.props.setAlertDates(this.props.data.get('initialDate'), date2);
+        } }, { key: 'selectChart', value: function selectChart(
+
+        selected, start, end) {
+            var data = {
+                start_date: start ? start : this.props.data.get('initialDate'),
+                end_date: end ? end : this.props.data.get('finalDate'),
+                ranking: false,
+                level: 'hub',
+                variable: "pba",
+                id: selected };
+
+            var selectedTab = this.props.data.get('selectedTab');
+            this.props.getFleetData(data, selectedTab);
+        } }, { key: 'updateDate', value: function updateDate(
+        start, end) {
+            this.props.setAlertDates(start, end);
+            this.allData(start, end);
+            this.selectChart(this.props.data.get('selectedChart'), start, end);
+        } }, { key: 'render', value: function render()
+        {var _this2 = this;
+            return (
+                _react2.default.createElement('div', { className: 'fleet-graphs' },
+                    _react2.default.createElement('div', { className: 'row top-buffer' },
+                        _react2.default.createElement('div', { className: 'col-xs-12' },
+                            _react2.default.createElement('div', { className: 'font-12 flex-end-h flex-container-nowrap' },
+                                _react2.default.createElement(_CustomDatePicker2.default, { ref: function ref(datePick) {_this2.customDatePicker = datePick;},
+                                    dateChange: this.updateDate,
+                                    startOnChange: this.handleDateChangeInitial,
+                                    endOnChange: this.handleDateChangeFinal,
+                                    initialDate: this.props.data.get('initialDate'),
+                                    finalDate: this.props.data.get('finalDate'),
+                                    reloadGraphs: this.reloadGraphs,
+                                    disabled: 6 })))),
+
+
+
+
+                    _react2.default.createElement('div', { className: 'top-buffer' },
+
+                        _react2.default.createElement(_LineGraphs2.default, {
+                            name: 'plot1',
+                            width: window.innerWidth - 100,
+                            height: 300,
+                            count: 5,
+                            X: this.props.data.get('allChartData').X,
+                            Y1: this.props.data.get('allChartData').Y1,
+                            Y2: this.props.data.get('allChartData').Y2,
+                            Y3: this.props.data.get('allChartData').Y3,
+                            Y4: this.props.data.get('allChartData').Y4,
+                            Y5: this.props.data.get('allChartData').Y5,
+                            name1: this.props.data.get('allChartData').name1,
+                            name2: this.props.data.get('allChartData').name2,
+                            name3: this.props.data.get('allChartData').name3,
+                            name4: this.props.data.get('allChartData').name4,
+                            name5: this.props.data.get('allChartData').name5,
+                            loader: this.props.data.get('allDataLoader'),
+                            noData: this.props.data.get('hubNoData') })),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    _react2.default.createElement('div', { className: 'btn-group top-buffer-2', role: 'group' },
+                        _react2.default.createElement(_reactRouter.Link, { to: '', className: (0, _classnames2.default)('btn btn-default', { 'active': this.props.data.get('selectedChart') === 8 }), onClick: function onClick() {_this2.selectChart(8);} }, 'Offshore'),
+                        _react2.default.createElement(_reactRouter.Link, { to: '', className: (0, _classnames2.default)('btn btn-default', { 'active': this.props.data.get('selectedChart') === 7 }), onClick: function onClick() {_this2.selectChart(7);} }, 'Onshore'),
+                        _react2.default.createElement(_reactRouter.Link, { to: '', className: (0, _classnames2.default)('btn btn-default', { 'active': this.props.data.get('selectedChart') === 1 }), onClick: function onClick() {_this2.selectChart(1);} }, 'Americas'),
+                        _react2.default.createElement(_reactRouter.Link, { to: '', className: (0, _classnames2.default)('btn btn-default', { 'active': this.props.data.get('selectedChart') === 2 }), onClick: function onClick() {_this2.selectChart(2);} }, 'Australia'),
+                        _react2.default.createElement(_reactRouter.Link, { to: '', className: (0, _classnames2.default)('btn btn-default', { 'active': this.props.data.get('selectedChart') === 5 }), onClick: function onClick() {_this2.selectChart(5);} }, 'EU South East'),
+                        _react2.default.createElement(_reactRouter.Link, { to: '', className: (0, _classnames2.default)('btn btn-default', { 'active': this.props.data.get('selectedChart') === 3 }), onClick: function onClick() {_this2.selectChart(3);} }, 'EU Central'),
+                        _react2.default.createElement(_reactRouter.Link, { to: '', className: (0, _classnames2.default)('btn btn-default', { 'active': this.props.data.get('selectedChart') === 4 }), onClick: function onClick() {_this2.selectChart(4);} }, 'EU North'),
+                        _react2.default.createElement(_reactRouter.Link, { to: '', className: (0, _classnames2.default)('btn btn-default', { 'active': this.props.data.get('selectedChart') === 6 }), onClick: function onClick() {_this2.selectChart(6);} }, 'EU South West')),
+
+                    _react2.default.createElement('div', { style: { width: window.innerWidth - 100 }, className: 'top-buffer-2' },
+
+                        _react2.default.createElement(_LineGraphs2.default, {
+                            name: 'plot2',
+                            title: getTitle(this.props.data.get('selectedChart')),
+                            width: window.innerWidth - 100,
+                            height: 300,
+                            count: 5,
+                            X: this.props.data.get('hubChartData').X,
+                            Y1: this.props.data.get('hubChartData').Y1,
+                            Y2: this.props.data.get('hubChartData').Y2,
+                            Y3: this.props.data.get('hubChartData').Y3,
+                            Y4: this.props.data.get('hubChartData').Y4,
+                            Y5: this.props.data.get('hubChartData').Y5,
+                            name1: this.props.data.get('hubChartData').name1,
+                            name2: this.props.data.get('hubChartData').name2,
+                            name3: this.props.data.get('hubChartData').name3,
+                            name4: this.props.data.get('hubChartData').name4,
+                            name5: this.props.data.get('hubChartData').name5,
+                            loader: this.props.data.get('hubDataLoader'),
+                            noData: this.props.data.get('hubNoData') }))));
+
+
+
+
+
+
+        } }]);return AvailabilityTime;}(_react2.default.Component);exports.default =
+
+
+AvailabilityTime;

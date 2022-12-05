@@ -1,0 +1,102 @@
+.create-contract-container {
+
+}
+
+.create-contract-container .shadow-box {
+    background-color: rgb(255, 255, 255);
+    width: 83vw;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 0px auto;
+    padding: 3%;
+    border-image: initial;
+    min-height: 80vh;
+    position: relative;
+}
+
+.create-contract-container .form-group {
+    clear: both;
+    height: 35px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.create-contract-container .full-width {
+    width: 100%;
+}
+
+.create-contract-container .button-custom {
+    background-color: #205081;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    bottom: 4vh;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.create-contract-container .button-custom:hover {
+    background-color: #27619d;
+}
+
+.create-contract-container .btn-width-70 {
+    width: 17%;
+}
+
+.create-contract-container #contract-edit-1,
+.create-contract-container #contract-edit-2,
+.create-contract-container #contract-edit-3,
+.create-contract-container #contract-edit-4,
+.create-contract-container #contract-edit-5{
+    /*width: 85vw;*/
+    margin: 0 auto;
+}
+
+
+.create-contract-container .form-group {
+    width: 100%;
+}
+
+.create-contract-container .label-wrapper {
+    width: 7vw;
+}
+
+.create-contract-container .input-group {
+    width: 10vw;
+}
+
+
+.create-contract-container .remove-subcontract {
+    font-size: 20px;
+    color: #9d121c;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.create-contract-container .remove-subcontract:hover {
+    color: #c91724;
+}
+
+
+.create-contract-container .buttons-wrapper {
+    position: absolute;
+    right: 3%;
+}
+
+
+.create-contract-container .react-grid-Container .react-grid-HeaderCell {
+    white-space: initial !important;
+}
+
+.create-contract-container .react-grid-Container .react-grid-Canvas {
+    overflow: hidden !important;
+}
+
+
+/*SELECT DROPDOWN*/
+.create-contract-container .Select .Select-control {
+    border-radius: 0px;
+}

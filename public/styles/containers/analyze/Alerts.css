@@ -1,0 +1,244 @@
+.alerts-graphs-container .Select {
+    width: 80px;
+}
+.alerts-graphs-container .type-dropdown .Select{
+    width: 150px;
+    height: 35px;
+}
+
+.alerts-graphs-container .farm-dropdown .Select {
+    width: 150px;
+}
+
+.alerts-graphs-container .charts-wrapper .Select {
+    width: 100px;
+}
+
+.alert-filter-container .react-datepicker__input-container input {
+    width: 150px;
+    height: 37px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    outline: 0;
+}
+
+.alert-filter-container .react-datepicker {
+    font-size: 12px;
+}
+
+.alerts-graphs-container .charts-container .Select {
+    width: 157px;
+}
+
+.alerts-graphs-container .chip {
+    padding: 8px 8px;
+    cursor: pointer;
+    font-size: 22px;
+    color:#333;
+}
+
+.create-button {
+
+}
+
+
+.alerts-container .alerts-filter {
+    zoom: 0.9;
+}
+
+
+/*.alerts-container .label-success, .alerts-container .label-warning {
+    padding: 4px 15px;
+}*/
+
+.alerts-container .btn .caret {
+    display: inline-block;
+}
+
+.alerts-graphs-container .back-button {
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+
+/*PAGINATION*/
+
+.alerts-container .filter-chips > div {
+    margin-right: 10px;
+    background-color: #ffffff;
+    text-align: center;
+    width: 160px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    border-bottom: 5px solid #ffffff;
+}
+
+.alerts-container .filter-chips > div:hover {
+    border-bottom: 5px solid rgba(32, 80, 129, 0.22);
+    /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+}
+
+.alerts-container .filter-chips > div.active {
+    /*background: #666666;*/
+    /*color: #ffffff;*/
+    border-bottom: 5px solid #205081;
+    /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+}
+
+.alerts-container .filter-chips .number {
+    font-size: 25px;
+}
+
+/*PAGINATION*/
+
+
+.alerts-graphs-container .DateInput {
+    padding: 0px;
+    background: none;
+}
+
+
+.alerts-graphs-container .Select .Select-value {
+    line-height: 30px;
+}
+
+.alerts-graphs-container .Select .Select-control {
+    /*border-radius: 2px;*/
+    height: 30px;
+}
+
+.alerts-graphs-container .charts-wrapper .Select .Select-control {
+    border-radius: 2px;
+    height: 30px;
+}
+
+.alerts-graphs-container .charts-wrapper .Select .Select-value {
+    line-height: 27px;
+}
+
+.alerts-graphs-container .charts-wrapper .graph-heading {
+    padding: 10px 10px;
+    height: 60px;
+}
+
+
+
+.alerts-graphs-container .Select .Select-placeholder {
+    line-height: 28px;
+}
+
+.alerts-graphs-container .width-82 {
+
+}
+
+.alerts-graphs-container .DateRangePickerInput {
+    border-radius: 4px;
+}
+
+.alerts-graphs-container .form-group {
+    margin-bottom: 0px;
+}
+
+.alerts-graphs-container .DateInput__display-text {
+    font-size: 15px;
+    text-align: center;
+}
+
+.alerts-graphs-container .service-order-buttons {
+    /* width: 16vw;*/
+}
+
+.margin-top27
+{
+    margin-top: 27px !important;
+}
+
+.alerts-graphs-container .details-block {
+    margin-top: 2%;
+    padding: 2% 1%;
+    width: 60%;
+}
+
+
+.alerts-graphs-container .details-block table td:nth-child(2) {
+    color: #333 !important;
+}
+
+.alerts-graphs-container .title {
+    font-size: 20px;
+}
+
+.alerts-graphs-container .charts-container {
+    background-color: #ffffff;
+    /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1px;
+}
+
+
+.filter-container {
+    position: absolute;
+    right: 2%;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 20vw;
+    zoom:0.9;
+    z-index: 1;
+    background-color: #fff;
+    margin-top: 10px;
+    padding:15px 15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    outline:0
+}
+
+.filter-container .margins-15 {
+    margin: 15px;
+}
+
+
+.status-order-form .form-group {
+    width: inherit;
+}
+
+
+
+
+
+/*ALERTS HISTORY*/
+
+.alerts-history-container .view-switch {
+    position: absolute;
+    top:55px;
+    right: 1%;
+}
+.alerts-history-container .Select{
+    width: 130px;
+}
+
+.alerts-history-container .Select .Select-control{
+    border-radius: 2px;
+    height: 25px;
+}
+
+
+.alerts-history-container .Select .Select-placeholder {
+    line-height: 25px;
+}
+
+.alerts-pagination-container{
+    margin-right: 16px;
+}
+
+.alerts-pagination-container li.active{
+    color: #2e3d54;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.alerts-pagination-container li:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,136 @@
+.dashboard-container .user-image {
+    width: 30%;
+}
+
+.dashboard-container .user-welcome {
+    width: 70%;
+}
+html,body{
+  height:100%;
+  color:#444;
+}
+
+.greeting{
+}
+.greeting h4{
+  padding-left: 1%;
+  text-align: left;
+}
+.alert_box{
+  display:flex;
+  width:100%;
+  margin-top:0.5%;
+
+}
+
+.dashboard-container .progress {
+  height: 10px;
+  margin-top: 5px;
+  border-radius: 0px;
+}
+
+.info_box{
+  display: flex;
+    /* top: 10%; */
+    margin: 0.5%;
+    /* margin-top: 3%; */
+    background-color: white;
+    width: 20%;
+    /* height: 70%; */
+    border: 1px solid #ddd;
+
+}
+.info_box h5{
+  margin:0px;
+  font-weight: bold;
+  text-align: justify;
+}
+.value_box .expl{
+  font-size: 70%;
+}
+.expl{
+    font-size:smaller;
+    text-align: center;
+}
+
+.info_box h2{
+  margin-top:5px;
+  text-align: center;
+}
+
+.value_box{
+  width:49.9%;
+  background-color:white;
+  margin:2%;
+
+}
+
+.value{
+  font-weight: 100;
+  margin-top:10%;
+  font-size:250% !important;
+}
+
+.line{
+  width:0.1px;
+  height:60%;
+  border:1px solid #ddd;
+  margin-top:7%;
+}
+
+.value_box2{
+  margin:5px;
+  width:100%;
+  font-size:87%;
+  font-weight: normal;
+}
+
+
+/* gokul code*/
+.dashboard-container .user-image {
+    width: 30%;
+}
+
+.dashboard-container .user-welcome {
+    width: 70%;
+}
+
+.graphs{
+
+  margin-top:0px;
+}
+
+.graph-flex{
+  padding: 0.1%;
+  display: flex;
+  width:100%;
+  height:70%;
+}
+
+
+.listMargins{
+margin: 0.5%;
+background-color: #ffffff;
+border: 1px solid #ddd;
+padding: 1px;
+height: 100%;
+
+width: 100%;
+
+}
+.dashboard-container .breadcrumbs{
+  display: none;
+}
+
+.listMargins ul li{
+  margin-top:5%;
+}
+
+h4{
+  text-align: center;
+}
+
+
+
+
+

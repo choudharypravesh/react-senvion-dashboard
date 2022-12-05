@@ -1,0 +1,49 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _underscore = require('underscore');var _underscore2 = _interopRequireDefault(_underscore);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var convertArrayOfObjectsToCSV = function convertArrayOfObjectsToCSV(args) {
+    var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+    data = args.data || null;
+    if (!data) {
+        return null;
+    }
+
+    columnDelimiter = args.columnDelimiter || ',';
+    lineDelimiter = args.lineDelimiter || '\n';
+
+    keys = Object.values(data.header);
+    delete data.header;
+    result = '';
+    result += keys.join(columnDelimiter);
+    result += lineDelimiter;
+    _underscore2.default.each(data, function (item, k) {
+        ctr = 0;
+        result += k + columnDelimiter;
+        _underscore2.default.each(item, function (v, k) {
+            v = v ? v : '';
+            result += v + columnDelimiter;
+            ctr++;
+        });
+        result += lineDelimiter;
+    });
+    return result;
+};
+var downloadCSV = function downloadCSV(args) {
+    var data, filename, link;
+    filename = args.filename + ".csv" || 'export.csv';
+    delete args.filename;
+    var csv = convertArrayOfObjectsToCSV({
+        data: args });
+
+    if (csv == null) return;
+
+
+    if (!csv.match(/^data:text\/csv/i)) {
+        csv = 'data:text/csv;charset=utf-8,' + csv;
+    }
+    data = encodeURI(csv);
+
+    link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', filename);
+    link.click();
+};exports.default =
+downloadCSV;

@@ -1,0 +1,53 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });
+var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _xhr = require('xhr');var _xhr2 = _interopRequireDefault(_xhr);
+var _reactBootstrap = require('react-bootstrap');
+var _Portfolio = require('../../../../public/styles/containers/portfolio/Portfolio.css');var _Portfolio2 = _interopRequireDefault(_Portfolio);
+var _PortfolioGraphs = require('./PortfolioGraphs');var _PortfolioGraphs2 = _interopRequireDefault(_PortfolioGraphs);
+require('react-dates/lib/css/_datepicker.css');
+var _moment = require('moment');var _moment2 = _interopRequireDefault(_moment);
+var _reactVirtualizedSelect = require('react-virtualized-select');var _reactVirtualizedSelect2 = _interopRequireDefault(_reactVirtualizedSelect);
+require('react-virtualized-select/styles.css');
+var _reactRouter = require('react-router');
+var _plusCircle = require('react-icons/lib/fa/plus-circle');var _plusCircle2 = _interopRequireDefault(_plusCircle);
+var _axios = require('axios');var _axios2 = _interopRequireDefault(_axios);
+var _underscore = require('underscore');var _underscore2 = _interopRequireDefault(_underscore);
+var _CustomDatePicker = require('../../../components/CustomDatePicker/CustomDatePicker');var _CustomDatePicker2 = _interopRequireDefault(_CustomDatePicker);
+var _classnames = require('classnames');var _classnames2 = _interopRequireDefault(_classnames);
+var _LineGraphs = require('./LineGraphs');var _LineGraphs2 = _interopRequireDefault(_LineGraphs);
+var _Loader = require('../../../components/Loader/Loader');var _Loader2 = _interopRequireDefault(_Loader);
+var _AvailabilityTime = require('./AvailabilityTime');var _AvailabilityTime2 = _interopRequireDefault(_AvailabilityTime);
+var _AvailabilityGen = require('./AvailabilityGen');var _AvailabilityGen2 = _interopRequireDefault(_AvailabilityGen);
+var _AppActions = require('../../../actions/AppActions');var _AppActions2 = _interopRequireDefault(_AppActions);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // App.js
+
+
+function getTabContent(props) {
+    switch (props.data.get('selectedTab')) {
+        case 1:return (
+                _react2.default.createElement(_AvailabilityTime2.default, { data: props.data }));
+
+        case 2:return (
+                _react2.default.createElement(_AvailabilityGen2.default, { data: props.data }));}
+
+
+}
+
+function Fleet(props) {
+    return (
+        _react2.default.createElement('div', { className: 'portfolio-container', id: 'fleet-graphs' },
+            _react2.default.createElement('div', { className: 'fleet-tabs margin-top level-1-tabs' },
+                _react2.default.createElement('div', { className: 'btn-group row', role: 'group' },
+                    _react2.default.createElement(_reactRouter.Link, { id: 'btn1', to: '', className: (0, _classnames2.default)("btn col-xs-4", { "active": props.data.get('selectedTab') === 1 }), onClick: function onClick() {props.changeFleetTab(1);} }, 'Availability(Time)'),
+                    _react2.default.createElement(_reactRouter.Link, { id: 'btn2', to: '', className: (0, _classnames2.default)("btn btn2 col-xs-4", { "active": props.data.get('selectedTab') === 2 }), onClick: function onClick() {props.changeFleetTab(2);} }, 'Availability(Gen.)'),
+                    _react2.default.createElement(_reactRouter.Link, { id: 'btn3', to: '', className: 'btn col-xs-4' }, 'Performance KPIs'))),
+
+
+            getTabContent(props)));
+
+
+
+}exports.default =
+
+
+
+Fleet;

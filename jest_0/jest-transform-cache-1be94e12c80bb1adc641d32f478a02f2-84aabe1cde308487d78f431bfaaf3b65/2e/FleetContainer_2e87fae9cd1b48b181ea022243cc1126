@@ -1,0 +1,19 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _Fleet = require('./Fleet');var _Fleet2 = _interopRequireDefault(_Fleet);
+var _utils = require('flux/utils');
+var _FleetStore = require('./FleetStore');var _FleetStore2 = _interopRequireDefault(_FleetStore);
+var _AppActions = require('../../../actions/AppActions');var _AppActions2 = _interopRequireDefault(_AppActions);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+function getStores() {
+  return [_FleetStore2.default];
+
+
+}
+
+function getState() {
+  return {
+    data: _FleetStore2.default.getState(),
+    changeFleetTab: _AppActions2.default.changeFleetTab };
+
+}exports.default =
+
+_utils.Container.createFunctional(_Fleet2.default, getStores, getState);

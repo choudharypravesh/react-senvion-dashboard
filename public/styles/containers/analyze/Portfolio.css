@@ -1,0 +1,51 @@
+.portfolio-container {
+    /*background-color: rgba(238, 238, 238, 0.48);*/
+}
+
+.portfolio-container .Select {
+    width: 76px;
+}
+
+
+
+.portfolio-container .heatmap-filters .Select {
+    width: 6%;
+}
+
+.portfolio-container .top-filters {
+    width: 41vw;
+}
+
+.portfolio-container .farm-tabs {
+    text-align: right;
+    margin-right: 1%;
+}
+
+.portfolio-container hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+}
+
+.portfolio-container .Select .Select-value {
+    line-height: 27px;
+}
+
+.portfolio-container .Select .Select-control {
+    border-radius: 2px;
+    height: 30px;
+}
+
+
+.portfolio-container .Select .Select-placeholder {
+    line-height: 16px;
+}
+
+.portfolio-container .form-group {
+    margin-bottom: 0px;
+}
+
+.portfolio-container .plots-margin {
+    margin-right: 14px;
+}

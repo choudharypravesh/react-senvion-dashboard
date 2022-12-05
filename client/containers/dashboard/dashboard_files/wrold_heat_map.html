@@ -1,0 +1,169 @@
+<!--
+                                    function unpack(rows, key) {
+                                      return rows.map(function(row) { return row[key]; });
+                                     }
+                                    function ploter(err, rows){
+                                    let data = [{
+                                      type: 'choropleth',
+                                      locations: unpack(rows, 'CODE'),
+                                      z: unpack(rows, 'GDP (BILLIONS)'),
+                                      text: unpack(rows, 'COUNTRY'),
+                                      colorscale: [
+                                          [0,'rgb(5, 10, 172)'],[0.35,'rgb(40, 60, 190)'],
+                                          [0.5,'rgb(70, 100, 245)'], [0.6,'rgb(90, 120, 245)'],
+                                          [0.7,'rgb(106, 137, 247)'],[1,'rgb(220, 220, 220)']],
+                                      autocolorscale: false,
+                                      reversescale: true,
+                                      marker: { 
+                                          line: {
+                                            color: 'rgb(180,180,180)',
+                                            width: 0.5
+                                             }
+                                        },
+                                      tick0: 0,
+                                      zmin: 0,
+                                      dtick: 1000,
+                                      colorbar: {
+                                          autotic: false,
+                                          tickprefix: '$',
+                                          title: 'GDP Billions US$'
+                                      }
+                                      }];
+
+                                      let layout = {
+                                          title: '2014 Global GDP Source:  CIA World Factbook',
+                                          geo:{
+                                              showframe: false,
+                                              showcoastlines: false,
+                                              projection:{
+                                                  type: 'mercator'
+                                              }
+                                          }
+                                      };
+                                      Plotly.plot(myDiv, data, layout, {showLink: false});
+                                      }
+                                  Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv',ploter);
+
+['Afghanistan','Albania','Algeria','American']
+['21.71','13.40','227.80','0.75']
+['AFG','ALB','DZA','ASM']
+COUNTRY,GDP (BILLIONS),CODE
+Afghanistan,
+21.71,AFG
+,13.40,ALB
+Algeria,227.80,DZA
+American Samoa,0.75,ASM
+Andorra,4.80,AND
+Angola,131.40,AGO
+Anguilla,0.18,AIA
+Antigua and Barbuda,1.24,ATG
+Argentina,536.20,ARG
+Armenia,10.88,ARM
+Aruba,2.52,ABW
+Australia,1483.00,AUS
+Austria,436.10,AUT
+Azerbaijan,77.91,AZE
+"Bahamas, The",8.65,BHM
+
+
+<GraphSkeleton
+                                        x1= {this.state.agX}
+                                        y1= {this.state.agY1}
+                                        name= 'plot1'
+                                        type="Bar"
+                                        color1="rgb(76, 166, 213)"
+                                        color2="rgb(238, 109, 102)"
+                                        legendName1="Actual"
+                                        legendName2="Target"
+                                        title="Alarms Generated"
+                                        width= {window.innerWidth/3.3}
+                                        height= {window.innerHeight/4}
+                                    />
+-->
+<script>
+let data=[
+{
+"name":"5-Planning",
+"Feb_25":"190"
+},
+{
+"name":"4-low",
+"Feb_25":"146"
+},
+{
+"name":"3-Moderate",
+"Feb_25":"71"
+},
+{
+"name":"2-Critical",
+"Feb_25":"12"
+},
+{
+"name":"1-High",
+"Feb_25":"8"
+},]
+class CustomPaginationTable extends React.Component {
+
+    render() {
+      const options = {
+        page: 0,  // which page you want to show as default
+        sizePerPage: 5,  // which size per page you want to locate as default
+        //paginationShowsTotal: this.renderShowsTotal,  // Accept bool or function
+      // default is bottom, top and both is all available
+        hideSizePerPage: true, //> //You can hide the dropdown for sizePerPage
+         alwaysShowAllBtns: false, // Always show next and previous button
+        withFirstAndLast: false //> //Hide the going to First and Last page button
+      };
+      function Tname(cell,row) {
+        return (
+          <div style={{display:'flex'}}>
+            <div className='beacon' style={{position:'relative',marginLeft:'6%',top:'5px'}}></div>
+            <div style={{position:'relative',width:'10px',marginLeft:'10%'}}>{row.name}</div>
+            </div>
+          );
+      }
+      function PowerProgress(cell,row) {
+          return(
+              <div style={{display:'flex',justifyContent:'flex-start',color:'white'}}>
+              <div style={{width:'35px',textAlign:'left'}}>{row.Feb_25}&nbsp;
+                    </div>
+              <div id="new"
+                  style={{
+                    display:'flex',
+
+                    width: '60%',
+                    height: '10px',
+                    marginTop:'2%',
+                    backgroundColor: '#0b1d2f'
+
+                  }}
+                  ><div
+                    style={{
+                      background: 'repeating-linear-gradient(90deg, #0b1d2f, #0b1d2f 1px, #ffffff 0px, #ffffff 4px)',
+                      align:'left',
+                      width: `calc(${row.Feb_25}*0.1%)`,
+                      height: '10px',
+                      backgroundColor:'#4ba882',
+
+                      transition: 'all .2s ease-out'
+                    }}
+                  />
+                  </div>
+                  </div>
+                  ) ;
+        }
+       
+      return (
+        <div style={{display:'flex', marginTop: '5vh'}}>
+        <BootstrapTable data={ data } bordered={false}   pagination={ false } options={ options }>
+            <TableHeaderColumn dataField='name' headerAlign='center'  dataFormat={Tname} thStyle={{fontWeight:'100'}} tdStyle={ { textAlign:'center',textTransform:'capitalize',fontSize:'12px',fontWeight:'100'} } isKey>Name</TableHeaderColumn>
+            <TableHeaderColumn dataField='power'headerAlign='center' thStyle={{fontWeight:'100'}} tdStyle={ { fontFamily:'Arial',textAlign:'center',marginTop:'2px' } } dataFormat={PowerProgress}> </TableHeaderColumn>
+            <TableHeaderColumn dataField='power'headerAlign='center' thStyle={{fontWeight:'100'}} tdStyle={ { fontFamily:'Arial',textAlign:'center',marginTop:'2px' } } >Feb 25
+            </TableHeaderColumn>
+        </BootstrapTable>
+        </div>
+      );
+    }
+}
+
+</script>

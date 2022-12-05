@@ -1,0 +1,237 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _Loader = require('../../../components/Loader/Loader');var _Loader2 = _interopRequireDefault(_Loader);
+var _NoData = require('../../../components/NoData/NoData');var _NoData2 = _interopRequireDefault(_NoData);
+var _SaveChart = require('./SaveChart');var _SaveChart2 = _interopRequireDefault(_SaveChart);
+var _utils = require('../../../Utils/utils');var _utils2 = _interopRequireDefault(_utils);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}var
+LineGraph = function (_React$Component) {_inherits(LineGraph, _React$Component);
+
+    function LineGraph(props) {_classCallCheck(this, LineGraph);var _this = _possibleConstructorReturn(this, (LineGraph.__proto__ || Object.getPrototypeOf(LineGraph)).call(this,
+        props));
+
+        _this.state = {
+            name: _this.props.name,
+            X: _this.props.X,
+            Y1: _this.props.Y1,
+            name1: _this.props.name1,
+            Y2: _this.props.Y2,
+            name2: _this.props.name2,
+            Y3: _this.props.Y3,
+            name3: _this.props.name3,
+            Y4: _this.props.Y4,
+            name4: _this.props.name4,
+            Y5: _this.props.Y5,
+            name5: _this.props.name5,
+            count: _this.props.count,
+            title: _this.props.title,
+            width: _this.props.width,
+            loader: _this.props.loader,
+            noData: _this.props.noData };
+
+        _this.setSize = _this.setSize.bind(_this);
+        _this.changeChart = _this.changeChart.bind(_this);
+        _this.renderChart = _this.renderChart.bind(_this);
+        _this.setNoData = _this.setNoData.bind(_this);
+        _this.downloadData = _this.downloadData.bind(_this);return _this;
+    }_createClass(LineGraph, [{ key: 'setNoData', value: function setNoData(
+        status) {
+            this.setState({
+                noData: status });
+
+        } }, { key: 'changeChart', value: function changeChart(
+        opts) {
+            this.setState({
+                name: opts.name,
+                X: opts.X,
+                Y1: opts.Y1,
+                name1: opts.name1,
+                Y2: opts.Y2,
+                name2: opts.name2,
+                Y3: opts.Y3,
+                name3: opts.name3,
+                Y4: opts.Y4,
+                name4: opts.name4,
+                Y5: opts.Y5,
+                name5: opts.name5,
+                count: opts.count,
+                title: opts.title,
+                width: opts.width,
+                loader: opts.loader });
+
+        } }, { key: 'renderChart', value: function renderChart()
+
+        {
+            if (!this.props.loader) {
+                var self = this;
+                var trace1 = {
+                    x: self.props.Y1 && self.props.X, // self.props.X,
+                    y: self.props.Y1, // self.props.Y1,
+                    type: 'scatter',
+                    line: {
+                        width: 1,
+                        shape: "spline" },
+
+                    connectgaps: false,
+                    name: self.props.name1 //self.props.name1
+                };
+
+                var trace2 = {
+                    x: self.props.Y2 && self.props.X,
+                    y: self.props.Y2,
+                    type: 'scatter',
+                    line: {
+                        width: 1,
+                        shape: "spline" },
+
+                    connectgaps: false,
+                    name: self.props.name2 };
+
+
+                var trace3 = {
+                    x: self.props.Y3 && self.props.X,
+                    y: self.props.Y3,
+                    type: 'scatter',
+                    line: {
+                        width: 1,
+                        shape: "spline" },
+
+                    connectgaps: false,
+                    name: self.props.name3 };
+
+
+                var trace4 = {
+                    x: self.props.Y4 && self.props.X,
+                    y: self.props.Y4,
+                    type: 'scatter',
+                    line: {
+                        width: 1,
+                        shape: "spline" },
+
+                    connectgaps: false,
+                    name: self.props.name4 };
+
+
+                var trace5 = {
+                    x: self.props.Y5 && self.props.X,
+                    y: self.props.Y5,
+                    type: 'scatter',
+                    line: {
+                        width: 1,
+                        shape: "spline" },
+
+                    connectgaps: false,
+                    name: self.props.name5 };
+
+
+                var data = [];
+
+                if (self.props.count == 1) {
+                    data = [trace1];
+                } else if (self.props.count == 2) {
+                    data = [trace1, trace2];
+                } else if (self.props.count == 3) {
+                    data = [trace1, trace2, trace3];
+                } else if (self.props.count == 4) {
+                    data = [trace1, trace2, trace3, trace4];
+                } else {
+                    data = [trace1, trace2, trace3, trace4, trace5];
+                }
+                console.log("chartdata");
+                console.log(data);
+
+                var layout = {
+                    title: self.props.title,
+                    width: self.props.width - 5,
+                    height: 300,
+                    font: {
+                        family: 'Arial, Helvetica, sans-serif',
+                        size: 12,
+                        color: '#333333' },
+
+                    showlegend: true,
+                    legend: {
+                        orientation: "h",
+                        xanchor: "center",
+                        x: '0.5',
+                        y: '-0.1' },
+
+                    margin: {
+                        t: 40, r: 40, l: 40, b: 40 } };
+
+
+                window.addEventListener("resize", this.setSize);
+                Plotly.newPlot(self.props.name, data, layout, {
+                    displayModeBar: false });
+
+            }
+        } }, { key: 'componentDidMount', value: function componentDidMount()
+
+        {
+            this.renderChart();
+        } }, { key: 'componentDidUpdate', value: function componentDidUpdate()
+        {
+            this.renderChart();
+        } }, { key: 'setSize', value: function setSize()
+        {
+            var update = {
+                width: window.innerWidth - 100 };
+
+            Plotly.relayout(this.props.name, update);
+        } }, { key: 'shouldComponentUpdate', value: function shouldComponentUpdate()
+
+        {
+            return true;
+        } }, { key: 'renderLoader', value: function renderLoader(
+        state) {
+            this.setState({
+                loader: state,
+                noData: false });
+
+        } }, { key: 'downloadData', value: function downloadData()
+        {var _this2 = this;
+            var data = {};
+            data.header = ["Time Stamp", this.state.name1, this.state.name2, this.state.name3, this.state.name4, this.state.name5];
+            _.map(this.state.X, function (time, index) {
+                data[time] = [_this2.state.Y1 && _this2.state.Y1[index], _this2.state.Y2 && _this2.state.Y2[index], _this2.state.Y3 && _this2.state.Y3[index], _this2.state.Y4 && _this2.state.Y3[index], _this2.state.Y5 && _this2.state.Y5[index]];
+            });
+            var name = this.state.title ? this.state.title : '';
+            data.filename = name + this.state.X[0] + "to" + this.state.X[this.state.X.length - 1];
+            (0, _utils2.default)(data);
+        } }, { key: 'render', value: function render()
+        {
+            //this.state.loader.setState({dataLoaded: true})
+            var plotMargins = {
+                marginBottom: "14px",
+                backgroundColor: '#ffffff',
+                border: '1px solid #ddd',
+                borderRadius: '4px',
+                padding: '1px' };
+
+            if (!this.props.loader) {
+                return (
+                    _react2.default.createElement('div', { style: plotMargins },
+                        _react2.default.createElement('div', { className: 'graph-heading flex-container flex-ea-h' },
+                            _react2.default.createElement('div', { className: 'top-buffer' },
+                                _react2.default.createElement('a', { style: { color: '#2f75bc', cursor: 'pointer', fontSize: '12' }, onClick: this.downloadData }, 'CSV'),
+                                _react2.default.createElement(_SaveChart2.default, {
+                                    name: this.state.name,
+                                    title: this.state.title }))),
+
+
+
+                        _react2.default.createElement('div', { id: this.state.name })));
+
+
+            } else if (this.props.noData) {
+                return (
+                    _react2.default.createElement(_NoData2.default, { height: 300, width: this.state.width }));
+
+            } else {
+                return (
+                    _react2.default.createElement(_Loader2.default, { width: this.state.width, height: 300 }));
+
+            }
+
+        } }]);return LineGraph;}(_react2.default.Component);exports.default =
+
+
+LineGraph;

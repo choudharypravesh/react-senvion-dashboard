@@ -1,0 +1,152 @@
+
+
+.right-section {
+    width: 62%;
+    padding: 0% 1%;
+}
+
+.chatpage-container .left-section {
+    width: 38%;
+    height: 100vh;
+    background-color: #FFFFFF;
+    border-right: 1px solid #ddd;
+    padding: 0% 1%;
+    overflow-y: scroll;
+}
+
+.chatpage-container .middle-section {
+    width: 33%;
+    height: 100vh;
+    background-color: #FFFFFF;
+    border-right: 1px solid #ddd;
+    padding: 0% 1%;
+}
+
+.chatpage-container ol.chat div li:not(:last-child) button {
+    display: none;
+}
+
+.chatpage-container .custom-button-confirmation {
+    width: 30%;
+    border: 0;
+}
+
+.chatpage-container .comments-section {
+    /*width: 95%;*/
+    bottom: 10%;
+}
+
+
+.chatpage-container .solutions-container {
+    margin-top: 3%;
+}
+
+.chatpage-container .solutions-container .solution-steps {
+    margin-top: 5%;
+}
+
+
+.chatpage-container .solutions-container .solution-steps .solution-step {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    padding: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    position: relative;
+}
+
+.chatpage-container .solutions-container .solution-steps .solution-step:hover {
+   /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+}
+
+.chatpage-container .solutions-container .solution-steps .solution-step .step-number {
+    /*background-color: #62D173;
+    padding: 5px;
+    height: 10px;
+    width: 10px;
+    color: #FFFFFF;
+    border-radius: 50px;*/
+
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+.chatpage-container .solutions-container .solution-steps .solution-step .step-tick {
+    font-size: 25px;
+    color: #bfbfbf;
+    transition: all 0.1s ease-in-out;
+    position: absolute;
+    right: 3%;
+}
+
+.chatpage-container .solutions-container .solution-steps .solution-step .step-tick:hover {
+    font-size: 35px;
+    color: #53bf4c;
+}
+
+.chatpage-container .solutions-container .solution-steps .solution-step .completed {
+    font-size: 35px;
+    color: #53bf4c;
+}
+
+
+
+
+.chatpage-container .solutions-container .solution-steps .solution-step .step-text {
+    color: #666666;
+    font-weight: bold;
+    width: 70%;
+}
+
+.chatpage-container .solutions-container .end-session {
+    background-color: #ffffff;
+    border: 1px solid #5cb85c;
+    color: #5cb85c;
+    padding: 10px 30px;
+    border-radius: 50px;
+    -webkit-transition:all .2s ease-in-out 0s;
+    transition:all .2s ease-in-out 0s;
+    cursor: pointer;
+}
+
+
+.chatpage-container .solutions-container .end-session:hover {
+    background-color: #56ab56;
+    color: #ffffff;
+}
+
+.chatpage-container .transparent {
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    height: 1500px;
+}
+
+.chatpage-container .session-end-model {
+    width: 40%;
+    padding: 30px;
+    background-color: #ffffff;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 13%;
+    border-radius: 4px;
+}
+
+.chatpage-container .transparent .heading-title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.chatpage-container .transparent .link {
+    color: #2b7d8f;
+}
+
+
+.chat-container .msg-choose-options {
+
+}

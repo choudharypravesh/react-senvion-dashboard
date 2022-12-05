@@ -1,0 +1,597 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _reactRouter = require('react-router');
+var _Alerts = require('../../../../public/styles/containers/analyze/Alerts.css');var _Alerts2 = _interopRequireDefault(_Alerts);
+var _reactBootstrapTableMin = require('react-bootstrap-table/dist/react-bootstrap-table.min.css');var _reactBootstrapTableMin2 = _interopRequireDefault(_reactBootstrapTableMin);
+var _reactBootstrapTable = require('react-bootstrap-table');
+var _timesCircleO = require('react-icons/lib/fa/times-circle-o');var _timesCircleO2 = _interopRequireDefault(_timesCircleO);
+var _filter = require('react-icons/lib/fa/filter');var _filter2 = _interopRequireDefault(_filter);
+var _archive = require('react-icons/lib/fa/archive');var _archive2 = _interopRequireDefault(_archive);
+var _externalLinkSquare = require('react-icons/lib/fa/external-link-square');var _externalLinkSquare2 = _interopRequireDefault(_externalLinkSquare);
+var _arrowUp = require('react-icons/lib/fa/arrow-up');var _arrowUp2 = _interopRequireDefault(_arrowUp);
+var _arrowDown = require('react-icons/lib/fa/arrow-down');var _arrowDown2 = _interopRequireDefault(_arrowDown);
+var _axios = require('axios');var _axios2 = _interopRequireDefault(_axios);
+var _reactBootstrapDatePicker = require('react-bootstrap-date-picker');var _reactBootstrapDatePicker2 = _interopRequireDefault(_reactBootstrapDatePicker);
+var _classnames = require('classnames');var _classnames2 = _interopRequireDefault(_classnames);
+var _underscore = require('underscore');var _underscore2 = _interopRequireDefault(_underscore);
+var _moment = require('moment');var _moment2 = _interopRequireDefault(_moment);
+var _CustomDatePicker = require('../../../components/CustomDatePicker/CustomDatePicker');var _CustomDatePicker2 = _interopRequireDefault(_CustomDatePicker);
+var _close = require('react-icons/lib/fa/close');var _close2 = _interopRequireDefault(_close);
+var _reactSelect = require('react-select');var _reactSelect2 = _interopRequireDefault(_reactSelect);
+var _reactVirtualizedSelect = require('react-virtualized-select');var _reactVirtualizedSelect2 = _interopRequireDefault(_reactVirtualizedSelect);
+require('react-virtualized-select/styles.css');
+var _reactSelectFastFilterOptions = require('react-select-fast-filter-options');var _reactSelectFastFilterOptions2 = _interopRequireDefault(_reactSelectFastFilterOptions);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}var
+
+
+Alerts = function (_React$Component) {_inherits(Alerts, _React$Component);
+    function Alerts(props) {_classCallCheck(this, Alerts);var _this = _possibleConstructorReturn(this, (Alerts.__proto__ || Object.getPrototypeOf(Alerts)).call(this,
+        props));
+
+        _this.state = {
+            tableData: [],
+            permanentTableData: [],
+            alerts: [{ value: 'Tower Oscillation Sensor Failure', label: 'Tower Oscillation Sensor Failure' }, { value: 'Rotor Bearing Temperature', label: 'Rotor Bearing Temperature' }],
+            priority: [{ value: 'High', label: 'High' }, { value: 'Low', label: 'Low' }],
+            category: [],
+            status: [{ value: "", label: 'All' }, { value: 0, label: 'New' }, { value: 1, label: 'Ignored' }, { value: 2, label: 'Closed' }, { value: 3, label: 'In Progress' }],
+            filteredData: {},
+            tableHeight: _this.tableHeight(),
+            initialPage: 1,
+            currentPageIndex: 1,
+            selectedTypeOfAlertCount: 0,
+            cur_status: "",
+            filterTurbines: [],
+            resultCount: 0 };
+
+
+        console.log(_this.numberOfRows());
+
+
+        _this.options = {
+            onPageChange: _this.onPageChange.bind(_this),
+            /*onSizePerPageList: this.sizePerPageListChange.bind(this),*/
+            page: 1, // which page you want to show as default
+            sizePerPage: _this.numberOfRows(), // which size per page you want to locate as default
+            pageStartIndex: 1, // where to start counting the pages
+            paginationSize: 3, // the pagination bar size.
+            prePage: 'Prev', // Previous page button text
+            nextPage: 'Next', // Next page button text
+            firstPage: 'First', // First page button text
+            lastPage: 'Last', // Last page button text
+            paginationShowsTotal: false, // Accept bool or function
+            paginationPosition: 'bottom' // default is bottom, top and both is all available
+            // hideSizePerPage: true > You can hide the dropdown for sizePerPage
+            // alwaysShowAllBtns: true // Always show next and previous button
+            // withFirstAndLast: false > Hide the going to First and Last page button
+        };
+
+        _this.onFilterSubmit = _this.onFilterSubmit.bind(_this);
+        _this.whatIsInAName = _this.whatIsInAName.bind(_this);
+        _this.actionOnSolution = _this.actionOnSolution.bind(_this);
+        _this.eventFire = _this.eventFire.bind(_this);
+        _this.numberOfRows = _this.numberOfRows.bind(_this);
+        _this.tableHeight = _this.tableHeight.bind(_this);
+        _this.statusFormatter = _this.statusFormatter.bind(_this);
+        _this.getPageData = _this.getPageData.bind(_this);
+        _this.onPageChange = _this.onPageChange.bind(_this);
+        _this.clearAll = _this.clearAll.bind(_this);
+        _this.setPagination = _this.setPagination.bind(_this);return _this;
+    }_createClass(Alerts, [{ key: 'componentDidMount', value: function componentDidMount()
+
+        {
+            var self = this;
+            this.getPageData({ status: "", pageNo: 1, entriesPerPage: 15, start: "", end: "" });
+        } }, { key: 'getPageData', value: function getPageData(
+
+        params) {
+            var self = this;
+            var data = {
+                status: params.status,
+                pageNo: params.pageNo ? params.pageNo : 1,
+                entriesPerPage: params.entriesPerPage ? params.entriesPerPage : 15,
+                alerts: params.alerts ? params.alerts : self.state.filteredData.alerts,
+                priority: params.priority ? params.priority : self.state.filteredData.priority,
+                start_date: params.start ? params.start : "",
+                end_date: params.end ? params.end : "",
+                turbines: params.turbines ? params.turbines : "",
+                farms: params.farms ? params.farms : "" };
+
+
+
+
+
+            _axios2.default.get('/api/predictive_analysis/alerts/details?data=' + JSON.stringify(data)).
+            then(function (response) {
+                console.log(response.data.data);
+                var sortedData = !_underscore2.default.isEmpty(response.data.data.data) ? response.data.data.data : [];
+                var resultCount = response.data.data.length ? response.data.data.length[0].count : 0;
+                self.setState({ tableData: sortedData, permanentTableData: sortedData, resultCount: resultCount, selectedTypeOfAlertCount: resultCount });
+            }).catch(function (err) {
+                console.log(err);
+                window.alert("Faliure " + err);
+            });
+        } }, { key: 'tableHeight', value: function tableHeight()
+        {
+            if (window.innerHeight < 700) {
+                return '400px';
+            } else {
+                return '750px';
+            }
+        } }, { key: 'numberOfRows', value: function numberOfRows()
+
+        {
+            if (window.innerHeight < 700) {
+                return 10;
+            } else {
+                return 15;
+            }
+        } }, { key: 'actionOnSolution', value: function actionOnSolution(
+
+        row, index) {
+            var self = this;
+            console.log(this.state);
+            if (index == 1) {
+                localStorage.selectedTurbineId = row.turbine_id;
+                localStorage.selectedAlert = JSON.stringify(row);
+                localStorage.removeItem('activeTab');
+            } else {
+                var data = {
+                    id: row.id,
+                    status: 1,
+                    cur_status: this.filter.state.status,
+                    pageNo: this.state.currentPageIndex,
+                    entriesPerPage: 15,
+                    alerts: this.filter.state.alertFilter,
+                    priority: this.filter.state.priorityFilter,
+                    start_date: this.filter.state.initialDate,
+                    end_date: this.filter.state.finalDate,
+                    turbines: this.filter.state.selectedTurbine };
+
+                console.log(data);
+                _axios2.default.post('/api/predictive_analysis/alerts/update', "data=" + JSON.stringify(data)).
+                then(function (response) {
+                    console.log(response.data.data);
+                    var sortedData = !_underscore2.default.isEmpty(response.data.data) ? response.data.data.data : [];
+                    var resultCount = response.data.data.length ? response.data.data.length[0].count : 0;
+                    self.setState({ tableData: sortedData, permanentTableData: sortedData, resultCount: resultCount, selectedTypeOfAlertCount: resultCount });
+                }).catch(function (err) {
+                    console.log(err);
+                    window.alert("Faliure " + err);
+                });
+            }
+        } }, { key: 'whatIsInAName', value: function whatIsInAName(
+
+        a, b) {
+            return a.filter(function (e) {
+                return Object.keys(b).every(function (c) {
+                    return e[c] == b[c];
+                });
+            });
+        } }, { key: 'eventFire', value: function eventFire(
+        el, etype) {
+            if (el.fireEvent) {
+                el.fireEvent('on' + etype);
+            } else {
+                var evObj = document.createEvent('Events');
+                evObj.initEvent(etype, true, false);
+                el.dispatchEvent(evObj);
+            }
+        } }, { key: 'onFilterSubmit', value: function onFilterSubmit(
+
+
+        filterData) {
+            this.setState({ isFilterApplied: true, currentChipIndex: 0 });
+            var self = this;
+            this.setPagination(1, 15);
+            this.getPageData(filterData);
+        } }, { key: 'setPagination', value: function setPagination(
+
+        page, sizePerPage, isLast) {
+            var self = this;
+            console.log(page, sizePerPage);
+            var pageNo = page;
+            var initPage = page === 1 ? 1 : 0;
+            var currentPageIndex = self.state.currentPageIndex;
+
+            if (page == 100) {//for next button
+                if (currentPageIndex % 5 == 0) {
+                    initPage = self.state.initialPage + 5;
+                }
+                pageNo = currentPageIndex + 1;
+            } else if (page == 101) {// for previous button
+                if ((currentPageIndex - 1) % 5 == 0 && currentPageIndex > 1) {
+                    initPage = self.state.initialPage - 5;
+                }
+                pageNo = currentPageIndex - 1;
+            } else if (isLast == 'isLast') {
+
+            }
+            var state = {
+                initialPage: initPage ? initPage : this.state.initialPage,
+                currentPageIndex: pageNo };
+
+            this.setState(state);
+            return pageNo;
+        } }, { key: 'onPageChange', value: function onPageChange(
+        page, sizePerPage, isLast) {
+            var pageNo = this.setPagination(page, sizePerPage, isLast);
+            this.getPageData({
+                status: this.filter.state.status,
+                pageNo: pageNo,
+                entriesPerPage: sizePerPage,
+                alerts: this.filter.state.alertFilter,
+                priority: this.filter.state.priorityFilter,
+                start: this.filter.state.initialDate,
+                end: this.filter.state.finalDate,
+                turbines: this.filter.state.selectedTurbine });
+
+        } }, { key: 'statusFormatter', value: function statusFormatter(
+
+        status, row) {
+            if (status == 0) {
+                return '<span class="label label-primary">New</span>';
+            } else if (status == 1) {
+                return '<span class="label label-default">Ignored</span>';
+            } else if (status == 2) {
+                return '<span class="label label-success">Closed</span>';
+            } else if (status == 3) {
+                return '<span class="label label-success">In Progress</span>';
+            }
+        } }, { key: 'clearAll', value: function clearAll()
+
+        {
+            this.filter.clearAll();
+        } }, { key: 'render', value: function render()
+
+
+        {var _this2 = this;
+            var self = this;
+            function priceFormatter(cell, row) {
+                return _react2.default.createElement('span', { title: cell }, cell); //'<i class="glyphicon glyphicon-usd"></i> ' + cell;
+            }
+            function buttonFormatter(cell, row) {
+                //return '<a href="/predicitive-analytics/analyze/alerts/charts" class="btn btn-xs btn-default">View</a>'
+                if (row.status == 0) {
+                    return _react2.default.createElement('div', { className: 'flex-container-nowrap flex-start-h' },
+                        _react2.default.createElement('div', { style: { width: '20px' }, onClick: function onClick() {self.actionOnSolution(row, 1);} },
+                            _react2.default.createElement(_reactRouter.Link, { to: '/monitor/alerts/details', className: '' },
+                                _react2.default.createElement('img', { src: require('../../../../public/images/icons/view-inside.svg'), width: '100%' }))), '\xA0\xA0',
+
+
+                        _react2.default.createElement('div', { style: { width: '20px' }, onClick: function onClick() {self.actionOnSolution(row, 6);} },
+                            _react2.default.createElement('img', { src: require('../../../../public/images/icons/archive.svg'), width: '100%' })));
+
+
+                } else {
+                    return _react2.default.createElement('div', { className: '' },
+                        _react2.default.createElement('div', { style: { width: '20px' }, onClick: function onClick() {self.actionOnSolution(row, 1);} },
+                            _react2.default.createElement(_reactRouter.Link, { to: '/monitor/alerts/details', className: '' },
+                                _react2.default.createElement('img', { src: require('../../../../public/images/icons/view-inside.svg'), width: '100%' }))));
+
+
+
+                }
+            }
+
+            function dateFormatter(cell, row) {
+                var date = new Date(cell);
+                return _react2.default.createElement('span', { title: (0, _moment2.default)(date).startOf('day').fromNow() }, (0, _moment2.default)(date).format('DD MMMM YYYY'));
+            }
+
+            function priorityFormatter(cell, row) {
+                if (cell == 'High') {
+                    return _react2.default.createElement('div', { className: '' },
+                        _react2.default.createElement('span', { title: cell }, _react2.default.createElement(_arrowUp2.default, { className: 'red-text' }), '\xA0High'));
+
+                } else {
+                    return _react2.default.createElement('div', { className: '' },
+                        _react2.default.createElement('span', { title: cell }, _react2.default.createElement(_arrowDown2.default, { className: 'blue-text' }), '\xA0Low'));
+
+                }
+            }
+
+
+            return (
+                _react2.default.createElement('div', { className: 'alerts-container', id: 'alerts' },
+                    _react2.default.createElement('div', { className: 'row' },
+                        _react2.default.createElement(FilterContainer, {
+                            active: this.state.isFilterActive,
+                            alerts: this.state.alerts,
+                            initialDate: this.state.initialDate,
+                            finalDate: this.state.finalDate,
+                            priority: this.state.priority,
+                            category: this.state.category,
+                            status: this.state.status,
+                            filterApply: this.onFilterSubmit,
+                            data: this.state.permanentTableData,
+                            turbines: this.state.filterTurbines,
+                            ref: function ref(filter) {_this2.filter = filter;} })),
+
+
+                    _react2.default.createElement('div', { className: 'row' },
+                        _react2.default.createElement('div', { className: 'col-xs-12' },
+                            _react2.default.createElement('div', { className: 'col-xs-4' },
+                                _react2.default.createElement('strong', null, this.state.tableData.length), ' of ', _react2.default.createElement('strong', null, this.state.resultCount), ' alerts for the filter',
+
+
+
+
+
+                                _react2.default.createElement('button', { onClick: this.clearAll, className: 'btn btn-default btn-sm margin-left-small' }, 'Clear All')))),
+
+
+
+
+                    _react2.default.createElement('div', { className: 'table-container row top-buffer' },
+                        _react2.default.createElement(_reactBootstrapTable.BootstrapTable, { data: this.state.tableData, hover: true, options: this.options, height: this.state.tableHeight },
+                            _react2.default.createElement(_reactBootstrapTable.TableHeaderColumn, { width: '40', dataField: 'id', isKey: true, dataAlign: 'center', dataSort: true }, 'ID'),
+                            _react2.default.createElement(_reactBootstrapTable.TableHeaderColumn, { width: '180', dataField: 'alerts', dataFormat: priceFormatter, dataAlign: 'center', dataSort: true }, 'Alerts'),
+                            _react2.default.createElement(_reactBootstrapTable.TableHeaderColumn, { width: '70', dataField: 'priority', dataFormat: priorityFormatter, dataSort: true }, 'Priority'),
+                            _react2.default.createElement(_reactBootstrapTable.TableHeaderColumn, { width: '150', dataField: 'farm_name', dataFormat: priceFormatter, dataSort: true }, 'Farm'),
+                            _react2.default.createElement(_reactBootstrapTable.TableHeaderColumn, { width: '70', dataField: 'turbine_id', dataFormat: priceFormatter, dataSort: true }, 'Turbine ID'),
+                            _react2.default.createElement(_reactBootstrapTable.TableHeaderColumn, { width: '70', dataField: 'model', dataFormat: priceFormatter, dataSort: true }, 'Model'),
+                            _react2.default.createElement(_reactBootstrapTable.TableHeaderColumn, { width: '130', dataField: 'date_identified', dataFormat: dateFormatter, dataSort: true }, 'Date Identified'),
+                            _react2.default.createElement(_reactBootstrapTable.TableHeaderColumn, { width: '120', dataField: 'status', dataFormat: this.statusFormatter, dataSort: true }, 'Status'),
+                            _react2.default.createElement(_reactBootstrapTable.TableHeaderColumn, { width: '90', dataField: 'approval', dataFormat: buttonFormatter, dataSort: true }, 'Action')),
+
+                        _react2.default.createElement('div', { className: 'row top-buffer-2' },
+                            _react2.default.createElement('div', { className: 'col-xs-5' },
+                                _react2.default.createElement('strong', null, this.state.tableData.length), ' of ', _react2.default.createElement('strong', null, this.state.resultCount), ' alerts for the filter'),
+
+                            _react2.default.createElement('div', { className: 'col-xs-7' },
+                                _react2.default.createElement(Pagination, {
+                                    onPageChange: this.onPageChange,
+                                    currentPageIndex: this.state.currentPageIndex,
+                                    initialPage: this.state.initialPage,
+                                    numberOfAlerts: this.state.selectedTypeOfAlertCount }))))));
+
+
+
+
+
+
+        } }]);return Alerts;}(_react2.default.Component);var
+
+
+FilterContainer = function (_React$Component2) {_inherits(FilterContainer, _React$Component2);
+    function FilterContainer(props) {_classCallCheck(this, FilterContainer);var _this3 = _possibleConstructorReturn(this, (FilterContainer.__proto__ || Object.getPrototypeOf(FilterContainer)).call(this,
+        props));
+
+        _this3.state = {
+            alertFilter: "",
+            priorityFilter: "",
+            status: "",
+            error: false,
+            turbines: [],
+            selectedTurbine: 0,
+            initialDate: "",
+            finalDate: "" };
+
+
+        _this3.handleSubmit = _this3.handleSubmit.bind(_this3);
+        _this3.filterChange1 = _this3.filterChange1.bind(_this3);
+        _this3.filterChange2 = _this3.filterChange2.bind(_this3);
+        _this3.filterChange6 = _this3.filterChange6.bind(_this3);
+        _this3.filterChange4 = _this3.filterChange4.bind(_this3);
+        _this3.handleDateChangeInitial = _this3.handleDateChangeInitial.bind(_this3);
+        _this3.handleDateChangeFinal = _this3.handleDateChangeFinal.bind(_this3);
+        _this3.getTurbines = _this3.getTurbines.bind(_this3);
+        _this3.getResults = _this3.getResults.bind(_this3);
+        _this3.clearAll = _this3.clearAll.bind(_this3);return _this3;
+    }_createClass(FilterContainer, [{ key: 'getTurbines', value: function getTurbines()
+
+        {
+            var self = this;
+            _axios2.default.get('/api/get/drop_down/all_turbines').
+            then(function (response) {
+                console.log(response.data.data);
+                var turbines = response.data.data.map(function (turbine) {return { value: turbine.serial_number, label: turbine.serial_number };});
+                self.setState({ turbines: turbines });
+            }).catch(function (err) {
+                console.error(err);
+
+            });
+        } }, { key: 'filterChange1', value: function filterChange1(
+
+        val) {
+            var value = val ? val.value : val;
+            this.setState({ alertFilter: value, error: false });
+            this.handleSubmit({ alertFilter: value });
+        } }, { key: 'filterChange2', value: function filterChange2(
+
+        val) {
+            var value = val ? val.value : val;
+            this.setState({ priorityFilter: value, error: false });
+            this.handleSubmit({ priorityFilter: value });
+        } }, { key: 'filterChange6', value: function filterChange6(
+
+        val) {
+            var value = val ? val.value : val;
+            this.setState({ status: value, error: false });
+            this.handleSubmit({ status: value });
+        } }, { key: 'filterChange4', value: function filterChange4(
+        val) {
+            var value = val ? val.value : val;
+            this.setState({ selectedTurbine: value, error: false });
+            this.handleSubmit({ selectedTurbine: value });
+        } }, { key: 'clearAll', value: function (_clearAll) {function clearAll() {return _clearAll.apply(this, arguments);}clearAll.toString = function () {return _clearAll.toString();};return clearAll;}(function ()
+        {
+            var filter = { alertFilter: "", selectedTurbine: "", priorityFilter: "", status: "", initialDate: "", finalDate: "" };
+            this.setState(filter);
+            this.handleSubmit(filter, true);
+            console.log(clearAll);
+        }) }, { key: 'getResults', value: function getResults()
+
+        {
+            this.handleSubmit({ start: this.state.initialDate, end: this.state.finalDate });
+        } }, { key: 'handleDateChangeInitial', value: function handleDateChangeInitial(
+
+        value, formattedValue) {
+            var dateArray = formattedValue.toString().split("/");
+            var date = dateArray[2] + "-" + dateArray[0] + "-" + dateArray[1];
+            var date2 = dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0];
+            this.setState({
+                initialDate: date2 });
+
+        } }, { key: 'handleDateChangeFinal', value: function handleDateChangeFinal(
+
+        value, formattedValue) {
+            var dateArray = formattedValue.toString().split("/");
+            var date = dateArray[2] + "-" + dateArray[0] + "-" + dateArray[1];
+            var date2 = dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0];
+            this.setState({ finalDate: date2 });
+        } }, { key: 'handleSubmit', value: function handleSubmit(
+
+        params, clearFilter) {
+            console.log("ready to submit");
+            var self = this;
+            var filterData = {};
+            if (!clearFilter) {
+                filterData = {
+                    alerts: params.alertFilter || params.alertFilter === null ? params.alertFilter : this.state.alertFilter, // because null will be the value when user clicks on cross of select box
+                    priority: params.priorityFilter || params.priorityFilter === null ? params.priorityFilter : this.state.priorityFilter,
+                    status: params.status >= 0 || params.status == "" || params.status === null ? params.status : this.state.status,
+                    start: params.start ? params.start : this.state.initialDate,
+                    end: params.end ? params.end : this.state.finalDate,
+                    turbines: params.selectedTurbine || params.selectedTurbine === null ? params.selectedTurbine : this.state.selectedTurbine };
+
+            } else {
+                filterData = {
+                    alerts: "",
+                    priority: "",
+                    status: "",
+                    start: "",
+                    end: "",
+                    turbines: "" };
+
+            }
+
+            this.props.filterApply(filterData);
+            event.preventDefault();
+        } }, { key: 'componentDidMount', value: function componentDidMount()
+        {
+            this.getTurbines();
+        } }, { key: 'render', value: function render()
+
+        {
+            var options = this.state.turbines;
+            var filterOptions = (0, _reactSelectFastFilterOptions2.default)({ options: options });
+            return (
+                _react2.default.createElement('div', null,
+                    _react2.default.createElement('div', null,
+                        _react2.default.createElement('div', { className: 'row margin-bottom top-buffer alert-filter-container' },
+                            _react2.default.createElement('div', { className: 'col-xs-2 no-padding' },
+                                _react2.default.createElement('label', { htmlFor: 'example-text-input', className: 'col-2 col-form-label' }, 'Alerts'),
+                                _react2.default.createElement(_reactVirtualizedSelect2.default, {
+                                    name: 'alerts',
+                                    value: this.state.alertFilter,
+                                    options: this.props.alerts,
+                                    onChange: this.filterChange1,
+                                    placeholder: 'Select alert type' })),
+
+
+                            _react2.default.createElement('div', { className: 'col-xs-2 ' },
+                                _react2.default.createElement('label', { htmlFor: 'example-text-input', className: 'col-2 col-form-label' }, 'Priority'),
+                                _react2.default.createElement(_reactVirtualizedSelect2.default, {
+                                    name: 'alerts',
+                                    value: this.state.priorityFilter,
+                                    options: this.props.priority,
+                                    onChange: this.filterChange2,
+                                    placeholder: 'Select priority' })),
+
+
+                            _react2.default.createElement('div', { className: 'col-xs-2 no-padding' },
+                                _react2.default.createElement('label', { htmlFor: 'example-text-input', className: 'col-2 col-form-label' }, 'Status'),
+                                _react2.default.createElement(_reactVirtualizedSelect2.default, {
+                                    name: 'alerts',
+                                    value: this.state.status,
+                                    options: this.props.status,
+                                    onChange: this.filterChange6,
+                                    placeholder: 'Select Status' })),
+
+
+                            _react2.default.createElement('div', { className: 'col-xs-2 ' },
+                                _react2.default.createElement('label', { htmlFor: 'example-text-input', className: 'col-2 col-form-label' }, 'Turbine'),
+                                _react2.default.createElement(_reactVirtualizedSelect2.default, {
+                                    filterOptions: filterOptions,
+                                    name: 'turbines',
+                                    value: this.state.selectedTurbine,
+                                    options: this.state.turbines,
+                                    onChange: this.filterChange4,
+                                    placeholder: 'Select Turbine' })),
+
+
+                            _react2.default.createElement('div', { className: 'col-xs-4 no-padding' },
+                                _react2.default.createElement('label', { htmlFor: 'example-text-input', className: 'col-2 flex-end-h col-form-label' }, 'Date Range '),
+                                _react2.default.createElement('div', { className: 'flex-container-nowrap flex-start-h' },
+                                    _react2.default.createElement(_reactBootstrapDatePicker2.default, {
+                                        id: 'example-datepicker',
+                                        value: this.state.initialDate,
+                                        onChange: this.handleDateChangeInitial,
+                                        showClearButton: false,
+                                        dateFormat: 'DD/MM/YYYY' }),
+                                    _react2.default.createElement('div', null, '\xA0To\xA0'),
+                                    _react2.default.createElement(_reactBootstrapDatePicker2.default, {
+                                        id: 'example-datepicker',
+                                        value: this.state.finalDate,
+                                        onChange: this.handleDateChangeFinal,
+                                        showClearButton: false,
+                                        dateFormat: 'DD/MM/YYYY' }),
+                                    _react2.default.createElement('div', { className: 'date-go-button' }, '\xA0\xA0',
+                                        _react2.default.createElement('button', { onClick: this.getResults, className: 'btn btn-success btn-sm' }, 'Go'))))))));
+
+
+
+
+
+
+
+        } }]);return FilterContainer;}(_react2.default.Component);var
+
+Pagination = function (_React$Component3) {_inherits(Pagination, _React$Component3);function Pagination() {_classCallCheck(this, Pagination);return _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).apply(this, arguments));}_createClass(Pagination, [{ key: 'render', value: function render()
+        {var _this5 = this;
+            var Page = [];
+            var NoOfPages = Math.ceil(this.props.numberOfAlerts / 15);
+            console.log(this.props.initialPage);var _loop = function _loop(
+            i) {
+                Page.push(_react2.default.createElement('li', { onClick: function onClick() {return _this5.props.onPageChange(i, 15);},
+                        className: (0, _classnames2.default)({ 'active': _this5.props.currentPageIndex == i }, { 'display-none': i > _this5.props.initialPage + 4 }) },
+                    _react2.default.createElement('a', null, i, ' ', _react2.default.createElement('span', { className: 'sr-only' }, '(current)'))));};for (var i = this.props.initialPage; i <= NoOfPages; i++) {_loop(i);
+
+            }
+
+            return (
+                _react2.default.createElement('div', { className: 'alerts-pagination-container' },
+                    _react2.default.createElement('nav', { className: 'text-right' },
+                        _react2.default.createElement('ul', { className: 'list-inline' },
+                            _react2.default.createElement('li', { onClick: function onClick() {return _this5.props.onPageChange(1, 15);},
+                                    className: (0, _classnames2.default)({ 'display-none': this.props.currentPageIndex == 1 }) },
+                                _react2.default.createElement('a', null,
+                                    _react2.default.createElement('span', null, 'First'))),
+
+
+                            _react2.default.createElement('li', { onClick: function onClick() {return _this5.props.onPageChange(101, 15);},
+                                    className: (0, _classnames2.default)({ 'display-none': this.props.currentPageIndex == 1 }) },
+                                _react2.default.createElement('a', null,
+                                    _react2.default.createElement('span', null, 'Prev'))),
+
+
+                            Page,
+                            _react2.default.createElement('li', { onClick: function onClick() {return _this5.props.onPageChange(100, 15);},
+                                    className: (0, _classnames2.default)({ 'active': this.props.currentPageIndex == 101 }, { 'display-none': NoOfPages == 1 || this.props.currentPageIndex == NoOfPages }) },
+                                _react2.default.createElement('a', null, 'Next ', _react2.default.createElement('span', { className: 'sr-only' }, '(current)'))),
+
+                            _react2.default.createElement('li', { onClick: function onClick() {return _this5.props.onPageChange(NoOfPages, 15, 'last');},
+                                    className: (0, _classnames2.default)({ 'active': this.props.currentPageIndex == NoOfPages }) },
+                                _react2.default.createElement('a', null,
+                                    _react2.default.createElement('span', null, 'Last')))))));
+
+
+
+
+
+
+        } }]);return Pagination;}(_react2.default.Component);exports.default =
+
+
+
+Alerts;

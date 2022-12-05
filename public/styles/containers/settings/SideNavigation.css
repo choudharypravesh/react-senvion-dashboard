@@ -1,0 +1,46 @@
+.e-sidenav-container {
+   /* font-size: 12px;*/
+    margin-left: 6vw;
+}
+
+
+.e-sidenav-container .s-sidenav {
+    width: 10%;
+    padding-top: 14px;
+    height: 100vh;
+    border-right: 1px solid #ddd;
+
+}
+
+.e-sidenav-container .sidenav-heading {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.e-sidenav-container .s-sidenav .navigation-items div {
+    color: #333333;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.e-sidenav-container .s-sidenav .navigation-items div.active {
+    background-color: #c4d2e7 !important;
+}
+
+.e-sidenav-container .s-sidenav .navigation-items div:hover {
+    background-color: rgba(209, 224, 247, 0.25);
+}
+
+.e-sidenav-container .content-container {
+    /* position: absolute; */
+    /* left: 15vw; */
+    /* margin: 10px; */
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 9px 16px 24px 16px;
+    /*height: 1500px;*/
+    /* top: 0; */
+    width: 40%;
+    /* padding-top: 2px; */
+    /*border-left: 1px solid #ddd;*/
+}

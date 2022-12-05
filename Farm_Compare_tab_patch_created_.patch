@@ -1,0 +1,111 @@
+Index: client/containers/analyze/farm/FarmActions.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- client/containers/analyze/farm/FarmActions.js	(revision 2c395904e3a4b05bc0bd2cb7ae86c97e26890d5c)
++++ client/containers/analyze/farm/FarmActions.js	(revision )
+@@ -126,8 +126,8 @@
+     dispatch(getTurbineLevelHeatMapData(data))
+ }
+ 
+-export const getCompareChartData = (data, selectedTab) => dispatch => {
+-    GetData.getFleetData(data, selectedTab).then(res => {
++export const getCompareChartData = (data) => dispatch => {
++    GetData.getCompareChartData(data).then(res => {
+         dispatch({
+             type: AppConstants.GET_COMPARE_CHART_DATA,
+             payload: {res}
+Index: client/containers/analyze/farm/FarmReducers.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- client/containers/analyze/farm/FarmReducers.js	(revision 2c395904e3a4b05bc0bd2cb7ae86c97e26890d5c)
++++ client/containers/analyze/farm/FarmReducers.js	(revision )
+@@ -22,7 +22,9 @@
+     heatMapLoader:true,
+     heatMap2Loader:true,
+     farmForDropDown:"",
+-    turbinesForDropdown: [],
++    turbinesForDropdown: [{value: '92537', label: '92537'},
++        {value: '92538', label: '92538'},
++        {value: '92539', label: '92539'}],
+     farmsAndTurbinesList: [],
+     allChartData: {}
+ })
+Index: client/containers/analyze/farm/Farms.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- client/containers/analyze/farm/Farms.js	(revision 2c395904e3a4b05bc0bd2cb7ae86c97e26890d5c)
++++ client/containers/analyze/farm/Farms.js	(revision )
+@@ -107,13 +107,27 @@
+         }
+         return
+     }
+-    setSelectedTab(id){
++    setSelectedTab(id) {
+         const {dispatch} = this.props;
+         dispatch(selectTab(id));
+-        let data = {start_date:"2017-05-05",end_date:"2017-08-03",id:9}
++        console.log(this.props.turbinesForDropdown);
++        let turbines = ""
++        for(let i=0; i<this.props.turbinesForDropdown.length; i++) {
++            if(i !== this.props.turbinesForDropdown.length - 1) {
++                turbines += this.props.turbinesForDropdown[i].value+","
++            } else {
++                turbines += this.props.turbinesForDropdown[i].value
++            }
++        }
++        console.log(turbines);
++        let data = {
++            turbines:turbines,
++            start_date:'2016-06-01',
++            end_date:'2017-08-02'
++        }
+         if(id == 2) {
+             dispatch(getFarmsAndTurbinesList());
+-            dispatch(getCompareChartData(data, 1))
++            dispatch(getCompareChartData(data))
+         }
+     }
+ 
+Index: client/Utils/utils.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- client/Utils/utils.js	(revision 2c395904e3a4b05bc0bd2cb7ae86c97e26890d5c)
++++ client/Utils/utils.js	(revision )
+@@ -1270,6 +1270,29 @@
+                 detailedData: data
+             }
+         })
++    },
++
++    getCompareChartData(data) {
++        return axios.get('http://172.20.104.78:5000/get/particle_counter/cumulative/?turbines='+data.turbines +
++            '&start_date='+data.start_date +
++            '&end_date='+data.end_date).then(response => {
++            let output = response.data;
++            let allChartData = [];
++            allChartData.Y1 = output['92537_value']
++            allChartData.Y2 = output['92538_value']
++            allChartData.Y3 = output['92539_value']
++            allChartData.X = output['92539_date']
++            allChartData.name = "plot1"
++            allChartData.width = window.innerWidth - 100
++            allChartData.height = 300
++            allChartData.count = 3
++            allChartData.name1 = "92537"
++            allChartData.name2 = "92538"
++            allChartData.name3 = "92539"
++            data.allChartData = allChartData;
++            console.log(data);
++            return data;
++        })
+     }
+ }
+ 

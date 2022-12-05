@@ -1,0 +1,33 @@
+.troubleshoot-container {
+
+}
+
+.troubleshoot-container .confirm-icons {
+    font-size: 20px;
+    margin: 0px 6px;
+    cursor: pointer;
+}
+
+.troubleshoot-container .tick {
+    color: rgba(92, 184, 92, 0.7);
+}
+
+.troubleshoot-container .tick:hover {
+    color: rgba(92, 184, 92, 1);
+}
+
+.troubleshoot-container .cancel {
+    color: rgba(178, 34, 34, 0.7);
+}
+
+.troubleshoot-container .cancel:hover {
+    color: rgba(178, 34, 34, 1);
+}
+
+.troubleshoot-container .play {
+    color: rgba(92, 184, 92, 0.7);
+}
+
+.troubleshoot-container .play:hover {
+    color: rgba(92, 184, 92, 1);
+}

@@ -1,0 +1,84 @@
+
+
+.farm-container .heatmap-filters .Select {
+    width: 12%;
+}
+
+.farm-container .top-filters {
+    width: 41vw;
+}
+
+.farm-container .Select .Select-value {
+    line-height: 27px;
+}
+
+.farm-container .Select .Select-control {
+    border-radius: 2px;
+    height: 30px;
+}
+
+
+.farm-container .Select .Select-placeholder {
+    line-height: 16px;
+}
+
+.farm-container .portfolio-container .date-picker input {
+    width: 90% !important;
+    margin: 0 auto;
+}
+
+.farm-container .heatmap-filters .date-picker input {
+
+}
+
+.farm-container .heatmap-filters .date-picker {
+    width: 38% !important;
+}
+
+.farm-container .DateInput {
+    padding: 0px;
+    background: none;
+}
+
+.farm-container .date-picker .popover {
+    right: 0 !important;
+    width: 276px;
+    left: inherit !important;
+}
+
+.farm-container .popover.bottom>.arrow {
+    right: 10% !important;
+    left: inherit !important;
+}
+
+.farm-container .farm-tabs {
+    text-align: right;
+    margin-right: 4px;
+    margin-top: 10px !important;
+}
+
+.farm-container .DateRangePickerInput {
+    border-radius: 4px;
+}
+
+.farm-container .date-picker .form-control {
+    padding: 6px 12px;
+    height: 30px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #333;
+}
+
+.farm-container .DateInput__display-text {
+    font-size: 15px;
+    text-align: center;
+}
+
+.farm-container .form-group {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.farm-container .plots-margin {
+    margin-right: 1%;
+}

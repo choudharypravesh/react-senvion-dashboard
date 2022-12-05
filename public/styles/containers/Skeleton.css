@@ -1,0 +1,48 @@
+/*
+.navbar-nav>li>div {
+    padding: 0px 0px !important;
+    display: inline-block !important;
+}*/
+
+.nav-dropdown-icon {
+    padding: 0px 0px !important;
+}
+
+.global-create-button {
+    padding: 5px !important;
+    margin-left: 20px;
+}
+
+.global-create-button:hover {
+    background: transparent !important;
+}
+
+.pa-skeleton .user_pic {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    overflow: hidden;
+    left: 21px;
+    top: 5px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.pa-skeleton .user_name {
+    margin-left: 35px;
+}
+
+.pa-skeleton .usersettings-container {
+    width: 9em;
+}
+
+.pa-skeleton {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+

@@ -1,0 +1,39 @@
+.create-service-order-container .Select {
+    width: inherit;
+}
+
+.create-service-order-container .Select .Select-control {
+    border-radius: 2px;
+    height: 40px;
+}
+
+.create-service-order-container .Select .Select-placeholder {
+    line-height: 35px;
+}
+
+.create-service-order-container .modal-dialog {
+    width: 50vw;
+}
+
+#global-status-order-create .close {
+    color: #ffffff;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 1;
+}
+
+
+.create-service-order-container .modal-body {
+    padding: 50px 30px;
+}
+
+.create-service-order-container table tbody tr {
+    font-size: 12px;
+}
+
+.create-service-order-container .Select .Select-value {
+    line-height: 15px;
+}
+
+.create-service-order-container .horizontal-dropdowns .form-group {
+    width: 11vw;
+}

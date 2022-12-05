@@ -1,0 +1,62 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _AppDispatcher = require('../../../dispatcher/AppDispatcher');var _AppDispatcher2 = _interopRequireDefault(_AppDispatcher);
+var _AppConstants = require('../../../constants/AppConstants');var _AppConstants2 = _interopRequireDefault(_AppConstants);
+var _utils = require('flux/utils');
+var _immutable = require('immutable');var _immutable2 = _interopRequireDefault(_immutable);
+var _moment = require('moment');var _moment2 = _interopRequireDefault(_moment);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}
+//import {AppAPI} from '../Utils/utils';
+var
+FleetStore = function (_ReduceStore) {_inherits(FleetStore, _ReduceStore);
+    function FleetStore() {_classCallCheck(this, FleetStore);return _possibleConstructorReturn(this, (FleetStore.__proto__ || Object.getPrototypeOf(FleetStore)).call(this, _AppDispatcher2.default));
+
+    }_createClass(FleetStore, [{ key: 'getInitialState', value: function getInitialState()
+
+        {
+            return (0, _immutable.Map)({
+                selectedTab: 1,
+                selectedChart: 8,
+                allDataLoader: true,
+                allNoData: false,
+                hubDataLoader: true,
+                hubNoData: false,
+                allChartData: { X: [], Y1: [], Y2: [], Y3: [], Y4: [], Y5: [], name: "", name1: "", name2: "", name3: "", name4: "", name5: "" },
+                hubChartData: { X: [], Y1: [], Y2: [], Y3: [], Y4: [], Y5: [], name: "", name1: "", name2: "", name3: "", name4: "", name5: "" },
+                initialDate: (0, _moment2.default)().subtract(7, 'days').format('YYYY-MM-DD'),
+                finalDate: (0, _moment2.default)().format('YYYY-MM-DD') });
+
+        } }, { key: 'reduce', value: function reduce(
+
+        state, action) {
+            switch (action.type) {
+                case _AppConstants2.default.LOADING:
+                    if (action.category === 9) {
+                        return state.set('allDataLoader', action.loaderStatus).set('selectedChart', action.chartId).set('allNoData', action.noData);
+                    } else {
+                        return state.set('hubDataLoader', action.loaderStatus).set('selectedChart', action.chartId).set('hubNoData', action.noData);
+                    }
+                case _AppConstants2.default.LOADED:
+                    if (action.category === 9) {
+                        return state.set('allDataLoader', action.loaderStatus).set('allChartData', action.allChartData).set('allNoData', action.noData);
+                    } else {
+                        return state.set('hubDataLoader', action.loaderStatus).set('hubChartData', action.allChartData).set('hubNoData', action.noData);
+                    }
+                case _AppConstants2.default.NODATA:
+                    if (action.category === 9) {
+                        return state.set('allNoData', action.noData).set('allDataLoader', action.loaderStatus);
+                    } else {
+                        return state.set('hubNoData', action.noData).set('hubDataLoader', action.loaderStatus);
+                    }
+                case _AppConstants2.default.CHANGE_FLEET_TAB:
+                    console.log("change tab");
+                    return state.set('selectedTab', action.tabId);
+                case _AppConstants2.default.SET_DATES:
+                    return state.set('initialDate', action.initialDate).set('finalDate', action.finalDate);
+                case _AppConstants2.default.GET_FLEET_DATA:
+                    console.log("executing fleet store");
+                    return state;
+                default:
+                    return getInitialState();}
+
+        } }]);return FleetStore;}(_utils.ReduceStore);exports.default =
+
+
+new FleetStore();

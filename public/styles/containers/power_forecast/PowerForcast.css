@@ -1,0 +1,58 @@
+.power-forecast-container .farm-turbine-selector {
+
+}
+
+.power-forecast-container .Select {
+    width: 120px;
+}
+
+.power-forecast-container .farm-dropdown .Select {
+    width: 150px;
+}
+
+
+.power-forecast-container .Select .Select-value {
+    line-height: 30px;
+}
+
+.power-forecast-container .Select .Select-control {
+    border-radius: 2px;
+    height: 30px;
+}
+
+.power-forecast-container .charts-wrapper .Select .Select-control {
+    border-radius: 2px;
+    height: 30px;
+}
+
+.power-forecast-container .charts-wrapper .Select .Select-value {
+    line-height: 27px;
+}
+
+
+
+.power-forecast-container .Select .Select-placeholder {
+    line-height: 28px;
+}
+
+.power-forecast-container .DateRangePickerInput {
+    border-radius: 4px;
+}
+
+.power-forecast-container .form-group {
+    margin-bottom: 0px;
+}
+
+.power-forecast-container .DateInput__display-text {
+    font-size: 15px;
+    text-align: center;
+}
+
+.power-forecast-container .noDataMessage {
+    position: absolute;
+    left:0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    top: 43vh;
+}

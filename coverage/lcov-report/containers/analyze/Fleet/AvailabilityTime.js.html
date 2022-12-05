@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for containers/analyze/Fleet/AvailabilityTime.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">containers/analyze/Fleet</a> AvailabilityTime.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.02% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>40/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>26/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">84.21% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>16/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.02% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>40/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import xhr from 'xhr';
+import { FormGroup } from 'react-bootstrap';
+import AlertCss from '../../../../public/styles/containers/portfolio/Portfolio.css'
+import PortfolioGraph from './PortfolioGraphs'
+import 'react-dates/lib/css/_datepicker.css';
+import moment from 'moment';
+import Select from 'react-virtualized-select'
+import 'react-virtualized-select/styles.css';
+import {Link} from 'react-router';
+import FaPlus from 'react-icons/lib/fa/plus-circle';
+import axios from 'axios';
+import _ from 'underscore';
+import CustomDatePicker from '../../../components/CustomDatePicker/CustomDatePicker';
+import classnames from 'classnames';
+import AppActions from '../../../actions/AppActions';
+import Chart from '../../../components/PlotlyChart/skeleton';
+&nbsp;
+function getTitle(selectedChart){
+    switch(selectedChart){
+        case 8: return "Offshore";
+        case 7: return "Onshore";
+        case 1: return "Americas";
+        case 2: return "Australia";
+        case 5: return "EU South East"
+        case 3: return "EU Central"
+        case 4: return "EU North"
+        case 6: return "EU South West"
+    }
+}
+class AvailabilityTime extends React.Component{
+    constructor(props) {
+            super(props)
+            this.allData = this.allData.bind(this);
+            this.handleDateChangeFinal = this.handleDateChangeFinal.bind(this);
+            this.handleDateChangeInitial = this.handleDateChangeInitial.bind(this);
+            this.reloadGraphs = this.reloadGraphs.bind(this);
+            this.updateDate=this.updateDate.bind(this);
+            this.selectChart = this.selectChart.bind(this)
+        }
+&nbsp;
+    componentDidMount() {
+&nbsp;
+        this.allData();
+        this.selectChart(this.props.data.get('selectedChart'));
+    }
+&nbsp;
+    allData(start, end) {
+        let dataAll = {
+                start_date:  start ? start : this.props.data.get('initialDate'),
+                end_date: end ? end : this.props.data.get('finalDate'),
+                ranking: false,
+                level: 'hub',
+                variable: "pba",
+                id:9
+            };
+            let selectedTab = this.props.data.get('selectedTab');
+        this.props.actions.getFleetData(dataAll,selectedTab)
+    }
+    reloadGraphs() {
+        let start = this.props.data.get('initialDate')
+        let end = this.props.data.get('finalDate')
+        this.allData(start, end);
+        this.selectChart(this.props.data.get('selectedChart'));
+    }
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    ha</span>ndleDateChangeInitial(initialDate) {
+<span class="cstat-no" title="statement not covered" >        this.props.actions.setDates(initialDate, this.props.data.get('finalDate'), 0)</span>
+    }
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    ha</span>ndleDateChangeFinal(finalDate) {
+<span class="cstat-no" title="statement not covered" >        this.props.actions.setDates(this.props.data.get('initialDate'), finalDate, 0);</span>
+    }
+&nbsp;
+    selectChart(selected, start, end){
+        let data = {
+            start_date: start ? start : this.props.data.get('initialDate'),
+            end_date: end ? end : this.props.data.get('finalDate'),
+            ranking: false,
+            level: 'hub',
+            variable: "pba",
+            id: selected
+        };
+           let selectedTab=this.props.data.get('selectedTab');
+        this.props.actions.getFleetData(data,selectedTab);
+    }
+    updateDate(start,end, selectedDate){
+      this.props.actions.setDates(start,end, selectedDate);
+      this.allData(start,end);
+      this.selectChart(this.props.data.get('selectedChart'), start, end);
+    }
+    render(){
+        return(
+            &lt;div className="fleet-graphs"&gt;
+                &lt;div className="row top-buffer"&gt;
+                    &lt;div className="col-xs-12"&gt;
+                        &lt;div className="font-12 flex-end-h flex-container-nowrap"&gt;
+                             &lt;CustomDatePicker ref = {(datePick) =&gt; { this.customDatePicker = datePick}}
+                                dateChange={this.updateDate}
+                                startOnChange={this.handleDateChangeInitial}
+                                endOnChange={this.handleDateChangeFinal}
+                                initialDate={this.props.data.get('initialDate')}
+                                finalDate={this.props.data.get('finalDate')}
+                                reloadGraphs={this.reloadGraphs}
+                                disabled={6}
+                                defaultValue={this.props.data.get('selectedDate')}
+                             /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div className="top-buffer"&gt;
+&nbsp;
+                        &lt;Chart
+                            name="plot1"
+                            type="scatter"
+                            width={window.innerWidth-100}
+                            height={300}
+                            traceCount={5}
+                            x1={this.props.data.get('allChartData').X}
+                            x2={this.props.data.get('allChartData').X}
+                            x3={this.props.data.get('allChartData').X}
+                            x4={this.props.data.get('allChartData').X}
+                            x5={this.props.data.get('allChartData').X}
+                            y1={this.props.data.get('allChartData').Y1}
+                            y2={this.props.data.get('allChartData').Y2}
+                            y3={this.props.data.get('allChartData').Y3}
+                            y4={this.props.data.get('allChartData').Y4}
+                            y5={this.props.data.get('allChartData').Y5}
+                            name1={this.props.data.get('allChartData').name1}
+                            name2={this.props.data.get('allChartData').name2}
+                            name3={this.props.data.get('allChartData').name3}
+                            name4={this.props.data.get('allChartData').name4}
+                            name5={this.props.data.get('allChartData').name5}
+                            loader={this.props.data.get('allDataLoader')}
+                            noData={this.props.data.get('allNoData')}
+                            /&gt;
+                &lt;/div&gt;
+&nbsp;
+                { //country and ID reference
+                    // ID            HUB
+                    // 1              america
+                    // 3              eu_central
+                    // 4              eu_north
+                    // 5              eu_south_east
+                    // 6              eu_south_west
+                    // 2              australia
+                    // 7              onshore
+                    // 8              offshore
+                    // 9              all
+                }
+                &lt;div className="btn-group top-buffer-2" role="group"&gt;
+                    &lt;button id="offshore" className={classnames('btn btn-default', { 'active':  this.props.data.get('selectedChart') === 8})}  onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.selectChart(8)}</span>}&gt;Offshore&lt;/button&gt;
+                    &lt;button id="onshore" className={classnames('btn btn-default', { 'active':  this.props.data.get('selectedChart') === 7})} onClick={() =&gt; {this.selectChart(7)}}&gt;Onshore&lt;/button&gt;
+                    &lt;button id="americas" className={classnames('btn btn-default', { 'active':  this.props.data.get('selectedChart') === 1})} onClick={() =&gt; {this.selectChart(1)}}&gt;Americas&lt;/button&gt;
+                    &lt;button id="australia" className={classnames('btn btn-default', { 'active':  this.props.data.get('selectedChart') === 2})} onClick={() =&gt; {this.selectChart(2)}}&gt;Australia&lt;/button&gt;
+                    &lt;button id="eu_south_east" className={classnames('btn btn-default', { 'active':  this.props.data.get('selectedChart') === 5})} onClick={() =&gt; {this.selectChart(5)}}&gt;EU South East&lt;/button&gt;
+                    &lt;button id="eu_central" className={classnames('btn btn-default', { 'active':  this.props.data.get('selectedChart') === 3})} onClick={() =&gt; {this.selectChart(3)}}&gt;EU Central&lt;/button&gt;
+                    &lt;button id="eu_north" className={classnames('btn btn-default', { 'active':  this.props.data.get('selectedChart') === 4})} onClick={() =&gt; {this.selectChart(4)}}&gt;EU North&lt;/button&gt;
+                    &lt;button id="eu_south_west" className={classnames('btn btn-default', { 'active':  this.props.data.get('selectedChart') === 6})} onClick={() =&gt; {this.selectChart(6)}}&gt;EU South West&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div style={{width: window.innerWidth - 100}} className="top-buffer-2"&gt;
+&nbsp;
+                        &lt;Chart
+                            name="plot2"
+                            type='scatter'
+                            title={getTitle(this.props.data.get('selectedChart'))}
+                            width={window.innerWidth-100}
+                            height={300}
+                            traceCount={5}
+                            decription = "this is decription"
+                            shape='spline'
+                            x1={this.props.data.get('hubChartData').Y1 &amp;&amp; this.props.data.get('hubChartData').X}
+                            x2={this.props.data.get('hubChartData').Y2 &amp;&amp; this.props.data.get('hubChartData').X}
+                            x3={this.props.data.get('hubChartData').Y3 &amp;&amp; this.props.data.get('hubChartData').X}
+                            x4={this.props.data.get('hubChartData').Y4 &amp;&amp; this.props.data.get('hubChartData').X}
+                            x5={this.props.data.get('hubChartData').Y5 &amp;&amp; this.props.data.get('hubChartData').X}
+                            y1={this.props.data.get('hubChartData').Y1}
+                            y2={this.props.data.get('hubChartData').Y2}
+                            y3={this.props.data.get('hubChartData').Y3}
+                            y4={this.props.data.get('hubChartData').Y4}
+                            y5={this.props.data.get('hubChartData').Y5}
+                            name1={this.props.data.get('hubChartData').name1}
+                            name2={this.props.data.get('hubChartData').name2}
+                            name3={this.props.data.get('hubChartData').name3}
+                            name4={this.props.data.get('hubChartData').name4}
+                            name5={this.props.data.get('hubChartData').name5}
+                            loader={this.props.data.get('hubDataLoader')}
+                            noData={this.props.data.get('hubNoData')}
+&nbsp;
+                        /&gt;
+&nbsp;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+&nbsp;
+export default AvailabilityTime;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 18 2017 16:27:35 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+'use strict';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _reactDom = require('react-dom');var _reactDom2 = _interopRequireDefault(_reactDom);
+var _enzyme = require('enzyme');
+var _reactTestRenderer = require('react-test-renderer');var _reactTestRenderer2 = _interopRequireDefault(_reactTestRenderer);
+var _Fleet = require('../../../../client/containers/analyze/Fleet/Fleet');var _Fleet2 = _interopRequireDefault(_Fleet);
+var _FleetContainer = require('../../../../client/containers/analyze/Fleet/FleetContainer');var _FleetContainer2 = _interopRequireDefault(_FleetContainer);
+var _AppActions = require('../../../../client/actions/AppActions');var _AppActions2 = _interopRequireDefault(_AppActions);
+var _CustomDatePicker = require('../../../../client/components/CustomDatePicker/CustomDatePicker');var _CustomDatePicker2 = _interopRequireDefault(_CustomDatePicker);
+var _AvailabilityTime = require('../../../../client/containers/analyze/Fleet/AvailabilityTime');var _AvailabilityTime2 = _interopRequireDefault(_AvailabilityTime);
+
+var _axios = require('axios');var _axios2 = _interopRequireDefault(_axios);
+var _sinon = require('sinon');var _sinon2 = _interopRequireDefault(_sinon);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}

@@ -1,0 +1,84 @@
+.chat-left-pane-container #search_container{
+    margin-top:7%; /* Don't copy this */
+    margin-bottom: 3%;
+}
+.chat-left-pane-container .search-input-group .input-group-addon{
+    background: white !important;
+}
+.chat-left-pane-container .search-input-group .form-control{
+    border-right:0;
+    box-shadow:0 0 0;
+    border-color:#ccc;
+}
+.chat-left-pane-container .search-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.chat-left-pane-container .chip {
+    padding: 3px 10px 3px 10px;
+    margin: 1% 1% 1% 0%;
+    border-radius: 2px;
+    -webkit-transition: all .2s ease-in-out 0s;
+    font-size: 12px;
+    transition: all .2s ease-in-out 0s;
+    cursor: pointer;
+}
+
+.chat-left-pane-container .available-chip, .chat-left-pane-container .selected-chip {
+    color: #39739d;
+    background-color: #E1ECF4;
+    border-color: transparent;
+}
+
+.chat-left-pane-container .selected-chip {
+    color: #39739d;
+    background-color: #E1ECF4;
+    border-color: transparent;
+}
+
+.chat-left-pane-container .recommended-chip {
+    color: #ffffff;
+    background-color: #888888;
+    border-color: transparent;
+}
+
+
+.chat-left-pane-container .available-chip:hover {
+    background-color: #CEE0ED;
+}
+
+.chat-left-pane-container .selected-chip:hover {
+    background-color: #CEE0ED;
+}
+
+.chat-left-pane-container .available-chip .chip-label, .chat-left-pane-container .selected-chip .chip-label {
+    margin-right: 7px;
+}
+
+.chat-left-pane-container .available-chip .chip-icon, .chat-left-pane-container .selected-chip .chip-icon {
+
+}
+
+.chat-left-pane-container .next-button {
+    position: relative;
+    top: 70px;
+    background-color: #ffffff;
+    border: 1px solid #5cb85c;
+    color: #5cb85c;
+    padding: 10px 30px;
+    border-radius: 50px;
+    -webkit-transition:all .2s ease-in-out 0s;
+    transition:all .2s ease-in-out 0s;
+    cursor: pointer;
+}
+
+.chat-left-pane-container .next-button:hover {
+    background-color: #56ab56;
+    color: #ffffff;
+}
+
+
+.possibilities-container {
+    margin-top: 7%;
+}

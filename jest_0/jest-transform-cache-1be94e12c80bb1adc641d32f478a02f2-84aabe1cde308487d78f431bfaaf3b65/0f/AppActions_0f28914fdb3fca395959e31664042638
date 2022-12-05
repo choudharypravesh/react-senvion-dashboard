@@ -1,0 +1,244 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _AppConstants = require('../constants/AppConstants');var _AppConstants2 = _interopRequireDefault(_AppConstants);
+var _axios = require('axios');var _axios2 = _interopRequireDefault(_axios);
+var _underscore = require('underscore');var _underscore2 = _interopRequireDefault(_underscore);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var
+AppActions = function () {
+    function AppActions(dispatcher) {_classCallCheck(this, AppActions);
+        this.dispatcher = dispatcher;
+    }
+    //Dashboard
+    _createClass(AppActions, [{ key: 'getAlertCount', value: function getAlertCount() {
+            var self = this;
+            _axios2.default.get('/api/predictive_analysis/alerts/count').
+            then(function (response) {
+                var data = response.data.data;
+                var ignoredAlerts = Number(_underscore2.default.filter(data, function (item) {return item.status == 1;})[0].count);
+                var closedAlerts = Number(_underscore2.default.filter(data, function (item) {return item.status == 2;})[0].count);
+                var openAlerts = Number(_underscore2.default.filter(data, function (item) {return item.status == 0;})[0].count);
+                self.dispatcher.dispatch({
+                    type: _AppConstants2.default.DASHBOARD_LOADED,
+                    category: _AppConstants2.default.ALERT_COUNT_DATA,
+                    openAlerts: openAlerts,
+                    totalAlerts: openAlerts + ignoredAlerts + closedAlerts });
+
+            }).catch(function (err) {
+                console.error(err);
+            });
+        } }, { key: 'getBestFarms', value: function getBestFarms()
+        {
+            var self = this;
+            _axios2.default.get('/api/get/dashboard/availability?type=bestFarm').
+            then(function (response) {
+                console.log(response.data.data);
+                self.dispatcher.dispatch({
+                    type: _AppConstants2.default.DASHBOARD_LOADED,
+                    category: _AppConstants2.default.BEST_FARMS_DATA,
+                    bestFarmsArray: response.data.data });
+
+            }).catch(function (err) {
+                console.error(err);
+            });
+        } }, { key: 'getBestTurbines', value: function getBestTurbines()
+        {
+            var self = this;
+            _axios2.default.get('/api/get/dashboard/availability?type=bestTurbine').
+            then(function (response) {
+                self.dispatcher.dispatch({
+                    type: _AppConstants2.default.DASHBOARD_LOADED,
+                    category: _AppConstants2.default.BEST_TURBINES_DATA,
+                    bestTurbinesArray: response.data.data });
+
+            }).catch(function (err) {
+                console.error(err);
+            });
+        } }, { key: 'getWorstFarms', value: function getWorstFarms()
+        {
+            var self = this;
+            _axios2.default.get('/api/get/dashboard/availability?type=worstFarm').
+            then(function (response) {
+                self.dispatcher.dispatch({
+                    type: _AppConstants2.default.DASHBOARD_LOADED,
+                    category: _AppConstants2.default.WORST_FARMS_DATA,
+                    worstFarmsArray: response.data.data });
+
+            }).catch(function (err) {
+                console.error(err);
+            });
+        } }, { key: 'getWorstTurbine', value: function getWorstTurbine()
+        {
+            var self = this;
+            _axios2.default.get('/api/get/dashboard/availability?type=worstTurbine').
+            then(function (response) {
+                self.dispatcher.dispatch({
+                    type: _AppConstants2.default.DASHBOARD_LOADED,
+                    category: _AppConstants2.default.WORST_TURBINES_DATA,
+                    worstTurbinesArray: response.data.data });
+
+            }).catch(function (err) {
+                console.error(err);
+            });
+        } }, { key: 'getDashboardAvailabilityData', value: function getDashboardAvailabilityData()
+        {
+            this.dispatcher.dispatch({
+                type: _AppConstants2.default.DASHBOARD_LOADING,
+                loaderStatus: true,
+                category: _AppConstants2.default.DASHBOARD_AVAILABILITY_DATA,
+                noData: false });
+
+            var self = this;
+            _axios2.default.get('/api/get/dashboard/availability/fleet/monthly').
+            then(function (response) {
+                //x value is same for y1 and y1
+                var x = _underscore2.default.map(response.data.data, function (item) {return new Date(item.availability_date).getTime();});
+
+                var y1 = _underscore2.default.map(response.data.data, function (item) {
+                    return item.availability_value_sum;
+                });
+                var data = { ranking: false,
+                    level: "fleet",
+                    variable: "pba" };
+
+                var y2 = [];
+                _axios2.default.get('/api/get/productionBasedData?data=' + JSON.stringify(data)).
+                then(function (response) {
+                    _underscore2.default.map(response.data.data, function (item) {
+                        y2[x.indexOf(new Date(item.measuring_date).getTime())] = item.production_based_availability;
+                    });
+                    self.dispatcher.dispatch({
+                        type: _AppConstants2.default.DASHBOARD_LOADED,
+                        loaderStatus: false,
+                        category: _AppConstants2.default.DASHBOARD_AVAILABILITY_DATA,
+                        noData: false,
+                        x: x.map(function (time) {return new Date(time);}),
+                        y1: y1,
+                        y2: y2 });
+
+                });
+            }).catch(function (err) {
+                console.error(err);
+            });
+        } }, { key: 'getAlertsDataByTime', value: function getAlertsDataByTime()
+        {
+            this.dispatcher.dispatch({
+                type: _AppConstants2.default.DASHBOARD_LOADING,
+                loaderStatus: true,
+                category: _AppConstants2.default.DASHBOARD_ALERTSTIME_DATA,
+                noData: false });
+
+            var self = this;
+            _axios2.default.get('/api/get/dashboard/alerts/fleet/monthly').
+            then(function (response) {
+                console.log("here is respones");
+                console.log(response.data.data);
+                var x = _underscore2.default.map(response.data.data, function (item) {
+                    console.log(item.time);
+                    var date = new Date(item.time);
+                    return date;
+                });
+
+                var y = _underscore2.default.map(response.data.data, function (item) {
+                    return item.count;
+                });
+
+                self.dispatcher.dispatch({
+                    type: _AppConstants2.default.DASHBOARD_LOADED,
+                    loaderStatus: false,
+                    category: _AppConstants2.default.DASHBOARD_ALERTSTIME_DATA,
+                    noData: false,
+                    x: x,
+                    y: y });
+
+            }).catch(function (err) {
+                console.error(err);
+            });
+        }
+        //Fleet
+    }, { key: 'changeFleetTab', value: function changeFleetTab(tabId) {
+            this.dispatcher.dispatch({
+                type: _AppConstants2.default.CHANGE_FLEET_TAB,
+                tabId: tabId });
+
+        }
+
+        //country and ID reference
+        // ID            HUB
+        // 1              america
+        // 3              eu_central
+        // 4              eu_north
+        // 5              eu_south_east
+        // 6              eu_south_west
+        // 2              australia
+        // 7              onshore
+        // 8              offshore
+        // 9              all
+    }, { key: 'getFleetData', value: function getFleetData(data, selectedTab) {
+            var self = this;
+            self.dispatcher.dispatch({
+                type: _AppConstants2.default.LOADING,
+                loaderStatus: true,
+                chartId: data.id,
+                category: data.id,
+                noData: false });
+
+
+            var url = selectedTab == 1 ? '/api/get/fleet/availability?data=' : "/api/get/productionBasedData?data=";
+            _axios2.default.get(url + JSON.stringify(data)).
+            then(function (response) {
+                console.log(response.data.data);
+                var output = response.data.data;
+                var group = _underscore2.default.groupBy(output, "type_broad");
+                if (_underscore2.default.isEmpty(group)) {
+                    self.dispatcher.dispatch({
+                        type: _AppConstants2.default.NODATA,
+                        noData: true,
+                        loaderStatus: false,
+                        category: data.id });
+
+                } else {
+                    console.log(group);
+                    var allChartData = {};
+                    allChartData.Y1 = group['MD'] && group['MD'].map(function (obj) {return obj.value;});
+                    allChartData.Y2 = group['MM'] && group['MM'].map(function (obj) {return obj.value;});
+                    allChartData.Y3 = group['3.XM'] && group['3.XM'].map(function (obj) {return obj.value;});
+                    allChartData.Y4 = group['6M'] && group['6M'].map(function (obj) {return obj.value;});
+                    allChartData.Y5 = group['5M'] && group['5M'].map(function (obj) {return obj.value;});
+                    var xGroup = group['5M'] || group['6M'] || group['3.XM'] || group['MM'] || group['MD'];
+                    allChartData.X = xGroup && xGroup.map(function (obj) {return obj.date;});
+                    allChartData.name = "plot1";
+                    allChartData.width = window.innerWidth - 100;
+                    allChartData.height = 300;
+                    allChartData.count = 5;
+
+                    allChartData.name1 = "MD";
+                    allChartData.name2 = "MM";
+                    allChartData.name3 = "3.XM";
+                    allChartData.name4 = "6M";
+                    allChartData.name5 = "5M";
+                    allChartData.loader = false;
+                    self.dispatcher.dispatch({
+                        type: _AppConstants2.default.LOADED,
+                        loaderStatus: false,
+                        noData: false,
+                        category: data.id,
+                        allChartData: allChartData });
+
+                }
+            }).catch(function (err) {
+                console.log(err);
+                window.alert("Faliure " + err);
+            });
+
+        } }, { key: 'setAlertDates', value: function setAlertDates(
+        initial, final) {
+            this.dispatcher.dispatch({
+                type: _AppConstants2.default.SET_DATES,
+                initialDate: initial,
+                finalDate: final });
+
+        } }, { key: 'getAlertsData', value: function getAlertsData(
+        filter) {
+            console.log("executing dispatcher");
+            this.dispatcher.dispatch({
+                type: _AppConstants2.default.GET_ALERTS_DATA,
+                filter: filter });
+
+        } }]);return AppActions;}();exports.default = AppActions;

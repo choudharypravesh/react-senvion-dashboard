@@ -1,0 +1,35 @@
+.date-picker input {
+    width: 100px;
+    height: 32px;
+    border-radius: 4px !important;
+    padding: 0px 5px;
+    position: relative;
+    border: 1px solid #ccc;
+    top: 2px;
+}
+
+.date-picker-dropdown {
+    width: 160px;
+}
+
+.react-datepicker {
+    font-size: 11px;
+    border-radius: 5px !important;
+}
+.Custom-date-picker-box
+{
+    height:35px
+
+}
+
+.full-life{
+}
+.full-life:hover{
+    color:white;
+    background-color: #1B8F69;
+}
+
+.full-life-selected{
+    color:white;
+    background-color: #1B8F69;
+}

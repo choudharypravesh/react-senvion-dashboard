@@ -1,0 +1,9 @@
+.loading{
+    background-color: white;
+}
+
+.loading svg{
+    margin-left: 50%;
+    fill: black;
+}
+

@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for containers/analyze/farm/Farms.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">containers/analyze/farm</a> Farms.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.54% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>1/65</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.59% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>1/63</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// App.js
+import React from 'react';
+import { FormGroup } from 'react-bootstrap';
+import Select from 'react-virtualized-select'
+import 'react-virtualized-select/styles.css';
+import { Link } from 'react-router'
+import 'react-dates/lib/css/_datepicker.css';
+import KpiViewCss from '../../../../public/styles/containers/analyze/farm/KpiView.css'
+import classnames from 'classnames';
+import FarmMap from './FarmMap'
+import LpfAvailabilityMap from './LpfAvailabilityMap'
+import WindResourcesCharts from './WindResourcesCharts'
+import FarmHeatMap from './HeatMapView'
+import { connect } from 'react-redux'
+import { setDate, selectTab, getCountriesList, changeCountryAndGetFarms, selectFarmAndCallNextAction, setDateAndCallNextActions} from '../../../actions/AppActions'
+&nbsp;
+&nbsp;
+ import {getPowerAndWind, getAvailability, getAlertsCount} from './FarmActions'
+&nbsp;
+&nbsp;
+&nbsp;
+import moment from 'moment';
+import CustomDatePicker from '../../../components/CustomDatePicker/CustomDatePicker';
+&nbsp;
+class Farms extends React.Component {
+<span class="fstat-no" title="function not covered" >    co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >        super(props)</span>
+<span class="cstat-no" title="statement not covered" >        this.setSelectedTab = this.setSelectedTab.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >        this.getSelectedTab = this.getSelectedTab.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >        this.handleCountryChange = this.handleCountryChange.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >        this.handleFarmChange = this.handleFarmChange.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >        this.handleDateChangeInitial = this.handleDateChangeInitial.bind(this)</span>
+<span class="cstat-no" title="statement not covered" >        this.handleDateChangeFinal = this.handleDateChangeFinal.bind(this)</span>
+<span class="cstat-no" title="statement not covered" >        this.handleGo = this.handleGo.bind(this)</span>
+<span class="cstat-no" title="statement not covered" >        this.updateDate = this.updateDate.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >        this.getNextActionsCreatorsAndData = this.getNextActionsCreatorsAndData.bind(this)</span>
+    }
+<span class="fstat-no" title="function not covered" >    co</span>mponentDidMount(){
+        const {dispatch} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+        let {nextActionCreators, data} = <span class="cstat-no" title="statement not covered" >this.getNextActionsCreatorsAndData();</span>
+<span class="cstat-no" title="statement not covered" >        dispatch(getCountriesList(nextActionCreators, data));</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    ge</span>tNextActionsCreatorsAndData(){
+        let data = <span class="cstat-no" title="statement not covered" >{},</span> nextActionCreators = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        switch(this.props.selectedTab){</span>
+            case 1: <span class="cstat-no" title="statement not covered" >data = {</span>
+                                    start_date: this.props.initialDate,
+                                    end_date: this.props.finalDate,
+                                    type: 2,
+                                    variable: "1372,569",
+                                    wind_farm: this.props.selectedFarm
+                                }
+<span class="cstat-no" title="statement not covered" >                    nextActionCreators = [getPowerAndWind, getAvailability, getAlertsCount]</span>
+<span class="cstat-no" title="statement not covered" >                    return {nextActionCreators, data}</span>
+            case 2: <span class="cstat-no" title="statement not covered" >data = {</span>
+                                   wind_farm: this.props.selectedFarm,
+                                   start_date: this.props.initialDate,
+                                   end_date: this.props.finalDate,
+                                   level: "farm",
+                                   ranking: false,
+                                   variable: "pba"
+                               }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    nextActionCreators = [getFarmAvailabilityData, getFarmPbaData]</span>
+<span class="cstat-no" title="statement not covered" >                    return {nextActionCreators, data}</span>
+            case 3: <span class="cstat-no" title="statement not covered" >data = {</span>
+                        wind_farm: this.props.selectedFarm,
+                        start_date: this.props.initialDate,
+                        end_date: this.props.finalDate,
+                        type: '2',
+                        variable: "569,606" // for wind speed and direction
+                    };
+<span class="cstat-no" title="statement not covered" >                    nextActionCreators = [getWindDataOfFarm]</span>
+<span class="cstat-no" title="statement not covered" >                    return {nextActionCreators, data}</span>
+            case 4: <span class="cstat-no" title="statement not covered" >data = {</span>
+                        wind_farm: this.props.selectedFarm,
+                        variable: this.props.variable,
+                        start_date: this.props.initialDate,
+                        end_date: this.props.finalDate,
+                        type: 2
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    nextActionCreators = [getTurbineLevelHeatMapData]</span>
+<span class="cstat-no" title="statement not covered" >                    return {nextActionCreators, data}</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return</span>
+    }
+<span class="fstat-no" title="function not covered" >    se</span>tSelectedTab(id){
+        const {dispatch} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+<span class="cstat-no" title="statement not covered" >        dispatch(selectTab(id));</span>
+    }
+<span class="fstat-no" title="function not covered" >    ha</span>ndleCountryChange(country){
+        let {nextActionCreators, data} = <span class="cstat-no" title="statement not covered" >this.getNextActionsCreatorsAndData();</span>
+<span class="cstat-no" title="statement not covered" >            this.props.dispatch(changeCountryAndGetFarms(country.value, nextActionCreators, data));</span>
+        }
+<span class="fstat-no" title="function not covered" >    ha</span>ndleFarmChange(farm){
+        let {nextActionCreators, data} = <span class="cstat-no" title="statement not covered" >this.getNextActionsCreatorsAndData();</span>
+<span class="cstat-no" title="statement not covered" >            this.props.dispatch(selectFarmAndCallNextAction(farm.value, nextActionCreators ,data));</span>
+        }
+<span class="fstat-no" title="function not covered" >    ha</span>ndleDateChangeInitial(initialDate) {
+<span class="cstat-no" title="statement not covered" >        this.props.dispatch(setDate({initialDate: initialDate, finalDate: this.props.finalDate}))</span>
+    }
+<span class="fstat-no" title="function not covered" >    ha</span>ndleDateChangeFinal(finalDate) {
+<span class="cstat-no" title="statement not covered" >        this.props.dispatch(setDate({initialDate: this.props.initialDate, finalDate: this.props.finalDate}));</span>
+    }
+<span class="fstat-no" title="function not covered" >    ha</span>ndleGo(){
+        let {nextActionCreators, data} = <span class="cstat-no" title="statement not covered" >this.getNextActionsCreatorsAndData();</span>
+<span class="cstat-no" title="statement not covered" >            nextActionCreators.map(<span class="fstat-no" title="function not covered" >ac</span>tion =&gt; {<span class="cstat-no" title="statement not covered" >this.props.dispatch(action(data))}</span>);</span>
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    up</span>dateDate(start, end, params){
+        let {nextActionCreators, data} = <span class="cstat-no" title="statement not covered" >this.getNextActionsCreatorsAndData();</span>
+<span class="cstat-no" title="statement not covered" >        data.start_date = start;</span>
+<span class="cstat-no" title="statement not covered" >        data.end_date = end;</span>
+<span class="cstat-no" title="statement not covered" >        if(this.props.selectedTab === 4){</span>
+<span class="cstat-no" title="statement not covered" >            data.chart = 1;</span>
+<span class="cstat-no" title="statement not covered" >            data.variable = this.props.selectedVariable1;</span>
+<span class="cstat-no" title="statement not covered" >            this.props.dispatch(setDateAndCallNextActions(nextActionCreators, data))</span>
+<span class="cstat-no" title="statement not covered" >            data.chart = 2;</span>
+<span class="cstat-no" title="statement not covered" >            data.variable = this.props.selectedVariable2;</span>
+<span class="cstat-no" title="statement not covered" >            this.props.dispatch(setDateAndCallNextActions(nextActionCreators, data))</span>
+        }else{
+<span class="cstat-no" title="statement not covered" >            this.props.dispatch(setDateAndCallNextActions(nextActionCreators, data))</span>
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    ge</span>tSelectedTab(){
+<span class="cstat-no" title="statement not covered" >        switch(this.props.selectedTab){</span>
+            case 1 : <span class="cstat-no" title="statement not covered" >return(</span>
+                &lt;FarmMap
+                    power = {this.props.power}
+                    windSpeed = {this.props.windSpeed}
+                    lpf = {this.props.lpf}
+                    availTime = {this.props.availTime}
+                    availGen = {this.props.availGen}
+                    numberOfAlerts = {this.props.numberOfAlerts}
+                    /&gt;
+            );
+            case 2 : <span class="cstat-no" title="statement not covered" >return(</span>
+                &lt;LpfAvailabilityMap
+                    dispatch = {this.props.dispatch}
+                    getNextActionsCreatorsAndData = {this.getNextActionsCreatorsAndData}
+                    availabilityX = {this.props.availabilityX}
+                    availabilityY = {this.props.availabilityY}
+                    farmPbaX = {this.props.farmPbaX}
+                    farmPbaY = {this.props.farmPbaY}
+                    availLoaderStatus = {this.props.availLoaderStatus}
+                    selectedFarm = {this.props.selectedFarm}
+                /&gt;
+&nbsp;
+            );
+            case 3 : <span class="cstat-no" title="statement not covered" >return(</span>
+                &lt;WindResourcesCharts
+                    dispatch = {this.props.dispatch}
+                    getNextActionsCreatorsAndData = {this.getNextActionsCreatorsAndData}
+                    selectedFarm = {this.props.selectedFarm}
+                    wsX = {this.props.wsX}
+                    wsY = {this.props.wsY}
+                    wdX = {this.props.wdX}
+                    wdY = {this.props.wdY}
+                    loader = {this.props.windDataLoader}
+                /&gt;
+            )
+            case 4 : <span class="cstat-no" title="statement not covered" >return(</span>
+                &lt;FarmHeatMap
+                    dispatch = {this.props.dispatch}
+                    getNextActionsCreatorsAndData = {this.getNextActionsCreatorsAndData}
+                    initialDate = {this.props.initialDate}
+                    finalDate = {this.props.finalDate}
+                    selectedFarm = {this.props.selectedFarm}
+                    variablesList = {this.props.variablesList}
+                    selectedVariable1 = {this.props.selectedVariable1}
+                    selectedVariable2 = {this.props.selectedVariable2}
+                    handleVariableChange = {this.handleVariableChange}
+                    heatMapLoader = {this.props.heatMapLoader}
+                    heatMap2Loader = {this.props.heatMap2Loader}
+                    heatMapX = {this.props.heatMapX}
+                    heatMapY = {this.props.heatMapY}
+                    heatMapZ = {this.props.heatMapZ}
+                    heatMap2X = {this.props.heatMap2X}
+                    heatMap2Y = {this.props.heatMap2Y}
+                    heatMap2Z = {this.props.heatMap2Z}
+                /&gt;
+            )
+        }
+    }
+<span class="fstat-no" title="function not covered" >    re</span>nder() {
+<span class="cstat-no" title="statement not covered" >        return (</span>
+&nbsp;
+            &lt;div className="kpiview-container" id="kpi-view"&gt;
+                &lt;div className=""&gt;
+                    &lt;div className="fleet-tabs margin-top level-1-tabs"&gt;
+                        &lt;div className="btn-group row" role="group"&gt;
+                            &lt;button id="overview" to="" className={classnames('btn col-xs-4', { 'active': this.props.selectedTab === 1})} onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.setSelectedTab(1)}</span>}&gt;Overview&lt;/button&gt;
+                            &lt;button id="availability" to="" className={classnames('btn col-xs-4', { 'active': this.props.selectedTab === 2})} onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.setSelectedTab(2)}</span>}&gt;Availability&lt;/button&gt;
+                            &lt;button id="wind_resources" to="" className={classnames('btn col-xs-4', { 'active': this.props.selectedTab === 3})} onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.setSelectedTab(3)}</span>}&gt;Wind Resources&lt;/button&gt;
+                            {/*need to put it back in future &lt;Link to="" className={classnames('btn col-xs-4', { 'active': this.state.selectedTab === 4})} onClick={() =&gt; {this.setSelectedTab(4)}}&gt;Alerts Overview&lt;/Link&gt;*/}
+&nbsp;
+                            &lt;button id="head_map" to="" className={classnames('btn col-xs-4', { 'active': this.props.selectedTab === 5})} onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.setSelectedTab(5)}</span>}&gt;Heat Map&lt;/button&gt;
+&nbsp;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;div className="font-12 flex-end-h flex-container-nowrap"&gt;
+                            &lt;div className="flex-container-nowrap"&gt;
+                                    &lt;div&gt;Country&amp;nbsp;&amp;nbsp;&lt;/div&gt;
+                                    &lt;Select
+                                        name="country-name"
+                                        value={this.props.selectedCountry}
+                                        options={this.props.countriesList}
+                                        onChange={this.handleCountryChange}
+                                        clearable={false}
+                                        autosize={true}
+                                    /&gt;
+                                    &lt;div&gt;&amp;nbsp;&amp;nbsp;Farm&amp;nbsp;&amp;nbsp;&lt;/div&gt;
+                                    &lt;Select
+                                        name="form-field-name"
+                                        value={this.props.selectedFarm}
+                                        options={this.props.farmsList}
+                                        onChange={this.handleFarmChange}
+                                        clearable={false}
+                                    /&gt;
+                                &lt;div className="flex-container-nowrap"&gt;
+                                    &lt;CustomDatePicker ref = {<span class="fstat-no" title="function not covered" >(d</span>atePick) =&gt; { <span class="cstat-no" title="statement not covered" >this.customDatePicker = datePick}</span>}
+                                        dateChange={this.updateDate}
+                                        startOnChange={this.handleDateChangeInitial}
+                                        endOnChange={this.handleDateChangeFinal}
+                                        initialDate={this.props.initialDate}
+                                        finalDate={this.props.finalDate}
+                                        reloadGraphs={this.handleGo}
+                                        disabled={6}
+                                    /&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        {this.getSelectedTab()}
+                    &lt;/div&gt;
+&nbsp;
+&nbsp;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+&nbsp;
+&nbsp;
+const mapStateToProps = <span class="fstat-no" title="function not covered" >st</span>ate =&gt; {
+&nbsp;
+  const { Farm } = <span class="cstat-no" title="statement not covered" >state</span>
+<span class="cstat-no" title="statement not covered" >  return Object.assign({}, Farm);</span>
+}
+export default connect(mapStateToProps)(Farms);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 18 2017 16:27:35 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>

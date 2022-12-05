@@ -1,0 +1,42 @@
+.solutions-container .solutions-form {
+    width: 50%;
+    margin: 4% auto;
+}
+
+.solutions-container .form-group {
+    margin-bottom: 3%;
+}
+
+.solutions-container .second-title {
+    font-size: 130%;
+    margin-bottom: 5%;
+    ;
+}
+
+.solutions-container .entry {
+    margin-bottom: 20px;
+}
+
+.step-container .minus-steps-button .btn, .step-container .add-steps-button .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.step-container .minus-steps-button {
+    z-index: 0;
+}
+
+.step-container .add-steps-button {
+    z-index: 1;
+}
+
+.step-container .steps-textarea {
+    height: 50px;
+    overflow: hidden;
+}
+
+
+.step-container .btn-add, .step-container .steps-textarea {
+    height: 50px;
+}
+

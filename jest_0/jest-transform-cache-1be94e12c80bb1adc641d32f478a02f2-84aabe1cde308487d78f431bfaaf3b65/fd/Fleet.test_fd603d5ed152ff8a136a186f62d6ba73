@@ -1,0 +1,110 @@
+'use strict';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _reactDom = require('react-dom');var _reactDom2 = _interopRequireDefault(_reactDom);
+var _enzyme = require('enzyme');
+var _reactTestRenderer = require('react-test-renderer');var _reactTestRenderer2 = _interopRequireDefault(_reactTestRenderer);
+var _Fleet = require('../../../../client/containers/analyze/Fleet/Fleet');var _Fleet2 = _interopRequireDefault(_Fleet);
+var _FleetContainer = require('../../../../client/containers/analyze/Fleet/FleetContainer');var _FleetContainer2 = _interopRequireDefault(_FleetContainer);
+var _AppActions = require('../../../../client/actions/AppActions');var _AppActions2 = _interopRequireDefault(_AppActions);
+var _CustomDatePicker = require('../../../../client/components/CustomDatePicker/CustomDatePicker');var _CustomDatePicker2 = _interopRequireDefault(_CustomDatePicker);
+var _AvailabilityTime = require('../../../../client/containers/analyze/Fleet/AvailabilityTime');var _AvailabilityTime2 = _interopRequireDefault(_AvailabilityTime);
+
+var _axios = require('axios');var _axios2 = _interopRequireDefault(_axios);
+var _sinon = require('sinon');var _sinon2 = _interopRequireDefault(_sinon);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+/*describe('FleetContainer', () => {
+                                                                                                                                                                             it('renders correctly', () => {
+                                                                                                                                                                                 const tree = renderer.create(
+                                                                                                                                                                                     <FleetContainer/>
+                                                                                                                                                                                 ).toJSON()
+                                                                                                                                                                                 expect(tree).toMatchSnapshot()
+                                                                                                                                                                             })
+                                                                                                                                                                         })*/
+
+
+/*test('Fleet changes tabs correctly', () => {
+                                                                                                                                                                                  const todo = { id: 1, done: false, name: 'Buy Milk' };
+                                                                                                                                                                                  const doneChange = jest.fn();
+                                                                                                                                                                                  const wrapper = mount(
+                                                                                                                                                                                      <Fleet todo={todo} doneChange={doneChange} />
+                                                                                                                                                                                  );
+                                                                                                                                                                              
+                                                                                                                                                                                  const p = wrapper.find('.toggle-todo');
+                                                                                                                                                                                  p.simulate('click');
+                                                                                                                                                                                  expect(doneChange).toBeCalledWith(1);
+                                                                                                                                                                              });*/
+
+
+it('Changes tab correctly when clicked', function () {
+    var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_FleetContainer2.default, null));
+    var button = wrapper.find('.btn2');
+    expect(wrapper.state().data.get('selectedTab')).toBe(1);
+    button.simulate('click');
+    expect(wrapper.state().data.get('selectedTab')).toBe(2);
+});
+
+
+/*
+    it('Dates are in the selected range (Last 30 days)', function() {
+        const FleetWrapper = mount(<FleetContainer/>);
+        const button = FleetWrapper.find('#last30');
+        button.simulate('click');
+        expect(FleetWrapper.state().data.get('allChartData')).toBe(1);
+    });
+    */
+
+
+/*it('Axios hitting as expected', function() {
+       
+       
+           axios.get('/api/get/fleet/availability?data='+JSON.stringify(data))
+               .then(function(response) {
+                   console.log(response.data);
+               }).catch(function(err) {
+               console.log(err);
+               window.alert("Faliure "+err);
+           });
+       })*/
+
+
+// describe('get-data', () => {
+//     let data = {start_date:"2017-06-30",end_date:"2017-07-07",graph:"all"}
+//
+//     let sandbox;
+//     let server;
+//     beforeEach(() => {
+//         sandbox = sinon.sandbox.create();
+//         server = sandbox.useFakeServer();
+//     });
+//     afterEach(() => {
+//         server.restore();
+//         sandbox.restore();
+//     });
+//
+//     it('should display a blankslate', (done) => {
+//         axios.get('/api/get/fleet/availability?data='+JSON.stringify(data))
+//             .then((response) => {
+//                 /*expect($('#users').innerHTML)
+//                 .to.equal('The list is empty.')*/ })
+//             .then(done, done);
+//         setTimeout(() => server.respond([200,
+//             { 'Content-Type': 'application/json' },
+//         '[]']), 0);
+//     });
+// })
+//
+//
+// describe('<FleetContainer/>', () => {
+//     it('renders 1 <FleetContainer/> component', () => {
+//         const component = shallow(<FleetContainer name="fleet"/>);
+//         expect(component).toHaveLength(1)
+//     })
+//     describe('it renders props correctly', () => {
+//         const component = shallow(<FleetContainer name="fleet"/>)
+//         console.log(component.instance().props);
+//     })
+//     describe('it changes the graphs on button click Go', () => {
+//         const component = mount(<FleetContainer/>)
+//         console.log(component);
+//     })
+// })

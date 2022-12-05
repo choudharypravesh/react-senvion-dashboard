@@ -1,0 +1,29 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _download = require('react-icons/lib/fa/download');var _download2 = _interopRequireDefault(_download);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}var
+
+
+SaveChart = function (_React$Component) {_inherits(SaveChart, _React$Component);
+    function SaveChart(props) {_classCallCheck(this, SaveChart);var _this = _possibleConstructorReturn(this, (SaveChart.__proto__ || Object.getPrototypeOf(SaveChart)).call(this,
+        props));
+        _this.state = {
+            name: _this.props.name };
+
+        _this.downloadChart = _this.downloadChart.bind(_this);return _this;
+    }_createClass(SaveChart, [{ key: 'downloadChart', value: function downloadChart()
+
+        {
+            var ele = document.getElementById(this.state.name);
+            Plotly.downloadImage(ele, { format: 'png', width: 800, height: 600, filename: this.props.title });
+        } }, { key: 'render', value: function render()
+        {
+            return (
+                _react2.default.createElement('span', { onClick: this.downloadChart, style: { cursor: 'pointer', color: '#2f75bc', fontSize: '12' } }, '\xA0\xA0PNG'));
+
+
+
+
+
+        } }]);return SaveChart;}(_react2.default.Component);exports.default =
+
+
+SaveChart;

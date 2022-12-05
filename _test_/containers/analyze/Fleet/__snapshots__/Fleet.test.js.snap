@@ -1,0 +1,414 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fleet renders correctly 1`] = `
+<div
+  className="portfolio-container"
+  id="fleet-graphs"
+>
+  <div
+    className="fleet-tabs margin-top level-1-tabs"
+  >
+    <div
+      className="btn-group row"
+      role="group"
+    >
+      <button
+        className="btn btn-default btn1 col-xs-4 active"
+        onClick={[Function]}
+      >
+        Availability(Time)
+      </button>
+      <button
+        className="btn btn-default btn2 col-xs-4"
+        onClick={[Function]}
+      >
+        Availability(Gen.)
+      </button>
+      <button
+        className="btn btn-default col-xs-4"
+      >
+        Performance KPIs
+      </button>
+    </div>
+  </div>
+  <div
+    className="fleet-graphs"
+  >
+    <div
+      className="row top-buffer"
+    >
+      <div
+        className="col-xs-12"
+      >
+        <div
+          className="font-12 flex-end-h flex-container-nowrap"
+        >
+          <div
+            className="flex-container-nowrap"
+          >
+            <div>
+              <a
+                className="btn btn-xs h-text disabled"
+                id="today"
+                onClick={[Function]}
+              >
+                Today
+              </a>
+               
+              <a
+                className="btn btn-xs h-text disabled"
+                id="yesterday"
+                onClick={[Function]}
+              >
+                Yesterday
+              </a>
+               
+              <a
+                className="btn btn-xs h-text selected"
+                id="last7"
+                onClick={[Function]}
+              >
+                Last 7 Days
+              </a>
+               
+              <a
+                className="btn btn-xs h-text"
+                id="last30"
+                onClick={[Function]}
+              >
+                Last 30 Days
+              </a>
+               
+              <a
+                className="btn btn-xs h-text"
+                id="last90"
+                onClick={[Function]}
+              >
+                Last 90 Days
+              </a>
+               
+              <a
+                className="btn btn-xs h-text"
+                id="last180"
+                onClick={[Function]}
+              >
+                Last 180 Days
+              </a>
+               
+              <a
+                className="btn btn-xs h-text"
+                id="last360"
+                onClick={[Function]}
+              >
+                Last 360 Days
+              </a>
+               
+            </div>
+            <div
+              className="flex-container-nowrap flex-end-h date-picker"
+            >
+              <div
+                className=""
+              >
+                <div
+                  className="form-group"
+                >
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "display": "inline-block",
+                        }
+                      }
+                    >
+                      <div
+                        className="react-datepicker__input-container"
+                      >
+                        <input
+                          autoComplete={undefined}
+                          autoFocus={undefined}
+                          className=""
+                          disabled={false}
+                          id={undefined}
+                          name={undefined}
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          placeholder={undefined}
+                          readOnly={undefined}
+                          required={undefined}
+                          tabIndex={undefined}
+                          title={undefined}
+                          type="text"
+                          value="11/07/2017"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                  To  
+              </div>
+              <div
+                className=""
+              >
+                <div
+                  className="form-group"
+                >
+                  <div>
+                    <div
+                      style={
+                        Object {
+                          "display": "inline-block",
+                        }
+                      }
+                    >
+                      <div
+                        className="react-datepicker__input-container"
+                      >
+                        <input
+                          autoComplete={undefined}
+                          autoFocus={undefined}
+                          className=""
+                          disabled={false}
+                          id={undefined}
+                          name={undefined}
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          placeholder={undefined}
+                          readOnly={undefined}
+                          required={undefined}
+                          tabIndex={undefined}
+                          title={undefined}
+                          type="text"
+                          value="18/07/2017"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                    
+              </div>
+              <div
+                className="date-go-button"
+              >
+                <button
+                  className="btn btn-success btn-xs"
+                  id="submit-filter-selection"
+                  onClick={[Function]}
+                >
+                  Go
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="top-buffer"
+    >
+      <div
+        className="loading"
+        style={
+          Object {
+            "paddingBottom": "140px",
+            "paddingLeft": "427px",
+            "paddingRight": "427px",
+            "paddingTop": "140px",
+          }
+        }
+      >
+        <svg
+          height="20"
+          width="70"
+        >
+          <circle
+            cx="10"
+            cy="10"
+            r="0"
+          >
+            <animate
+              attributeName="r"
+              dur="1000ms"
+              from="0"
+              repeatCount="indefinite"
+              to="3"
+              values="0;3;3;3;0"
+            />
+          </circle>
+          <circle
+            cx="25"
+            cy="10"
+            r="0"
+          >
+            <animate
+              attributeName="r"
+              begin="200ms"
+              dur="1000ms"
+              from="0"
+              repeatCount="indefinite"
+              to="3"
+              values="0;3;3;3;0"
+            />
+          </circle>
+          <circle
+            cx="40"
+            cy="10"
+            r="0"
+          >
+            <animate
+              attributeName="r"
+              begin="400ms"
+              dur="1000ms"
+              from="0"
+              repeatCount="indefinite"
+              to="3"
+              values="0;3;3;3;0"
+            />
+          </circle>
+        </svg>
+      </div>
+    </div>
+    <div
+      className="btn-group top-buffer-2"
+      role="group"
+    >
+      <button
+        className="btn btn-default active"
+        id="offshore"
+        onClick={[Function]}
+      >
+        Offshore
+      </button>
+      <button
+        className="btn btn-default"
+        id="onshore"
+        onClick={[Function]}
+      >
+        Onshore
+      </button>
+      <button
+        className="btn btn-default"
+        id="americas"
+        onClick={[Function]}
+      >
+        Americas
+      </button>
+      <button
+        className="btn btn-default"
+        id="australia"
+        onClick={[Function]}
+      >
+        Australia
+      </button>
+      <button
+        className="btn btn-default"
+        id="eu_south_east"
+        onClick={[Function]}
+      >
+        EU South East
+      </button>
+      <button
+        className="btn btn-default"
+        id="eu_central"
+        onClick={[Function]}
+      >
+        EU Central
+      </button>
+      <button
+        className="btn btn-default"
+        id="eu_north"
+        onClick={[Function]}
+      >
+        EU North
+      </button>
+      <button
+        className="btn btn-default"
+        id="eu_south_west"
+        onClick={[Function]}
+      >
+        EU South West
+      </button>
+    </div>
+    <div
+      className="top-buffer-2"
+      style={
+        Object {
+          "width": 924,
+        }
+      }
+    >
+      <div
+        className="loading"
+        style={
+          Object {
+            "paddingBottom": "140px",
+            "paddingLeft": "427px",
+            "paddingRight": "427px",
+            "paddingTop": "140px",
+          }
+        }
+      >
+        <svg
+          height="20"
+          width="70"
+        >
+          <circle
+            cx="10"
+            cy="10"
+            r="0"
+          >
+            <animate
+              attributeName="r"
+              dur="1000ms"
+              from="0"
+              repeatCount="indefinite"
+              to="3"
+              values="0;3;3;3;0"
+            />
+          </circle>
+          <circle
+            cx="25"
+            cy="10"
+            r="0"
+          >
+            <animate
+              attributeName="r"
+              begin="200ms"
+              dur="1000ms"
+              from="0"
+              repeatCount="indefinite"
+              to="3"
+              values="0;3;3;3;0"
+            />
+          </circle>
+          <circle
+            cx="40"
+            cy="10"
+            r="0"
+          >
+            <animate
+              attributeName="r"
+              begin="400ms"
+              dur="1000ms"
+              from="0"
+              repeatCount="indefinite"
+              to="3"
+              values="0;3;3;3;0"
+            />
+          </circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

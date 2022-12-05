@@ -1,0 +1,11 @@
+.farmmap-container table {
+    font-family: Regular !important;
+}
+
+.farmmap-container .helper-text {
+    font-size: 13px;
+}
+
+.farmmap-container table tr td {
+    padding: 0px 30px !important;
+}

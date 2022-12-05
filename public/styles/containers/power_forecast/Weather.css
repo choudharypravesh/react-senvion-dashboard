@@ -1,0 +1,89 @@
+
+
+
+
+.weather-container .heatmap-filters .Select {
+    width: 13%;
+}
+
+
+
+
+.weather-container .top-filters {
+    width: 41vw;
+}
+
+.weather-container .Select .Select-value {
+    line-height: 27px;
+}
+
+.weather-container .Select .Select-control {
+    height: 30px;
+}
+
+
+.weather-container .Select .Select-placeholder {
+    line-height: 16px;
+}
+.weather-container .DateInput {
+    padding: 0px;
+    background: none;
+}
+
+
+.weather-container .popover.bottom>.arrow {
+    right: 10% !important;
+    left: inherit !important;
+}
+
+.weather-container .farm-tabs {
+    text-align: right;
+    margin-right: 4px;
+}
+
+.weather-container .DateRangePickerInput {
+    border-radius: 4px;
+}
+
+
+
+.weather-container .DateInput__display-text {
+    font-size: 15px;
+    text-align: center;
+}
+
+.weather-container .form-group {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.weather-container .plots-margin {
+    margin-right: 1%;
+}
+
+.charts-container .Select{
+    width: 130px;
+}
+.charts-container .graph-heading{
+    padding: 1%;
+}
+
+
+/*
+FORECAST CSS*/
+
+.forecast-container .white-box {
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding:10px;
+}
+
+.forecast-container .left-right-icons {
+    font-size: 25px;
+    color: #666666;
+    cursor: pointer;
+}
+
+.forecast-container .left-right-icons:hover {
+    color: #888888;
+}

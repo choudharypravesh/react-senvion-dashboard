@@ -1,0 +1,17 @@
+'use strict';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _reactDom = require('react-dom');var _reactDom2 = _interopRequireDefault(_reactDom);
+var _enzyme = require('enzyme');
+var _reactTestRenderer = require('react-test-renderer');var _reactTestRenderer2 = _interopRequireDefault(_reactTestRenderer);
+var _Alerts = require('../../../../client/containers/monitor/alerts/Alerts');var _Alerts2 = _interopRequireDefault(_Alerts);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+describe('Alerts', function () {
+    xit('renders without crashing', function () {
+        var div = global.document.createElement('div');
+        _reactDom2.default.render(_react2.default.createElement(_Alerts2.default, null), div);
+    });
+});
+describe('App', function () {
+    xit('should be able to run tests', function () {
+        expect(1 + 2).toEqual(3);
+    });
+});

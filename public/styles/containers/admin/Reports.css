@@ -1,0 +1,24 @@
+.reports-container .form-group {
+    margin-bottom: 0px;
+}
+
+.reports-container .Select {
+    width: 15%;
+}
+
+.reports-container .date-go-button {
+    margin-left: 20px;
+}
+
+.reports-container .form-control {
+    font-size: 12px;
+}
+
+.reports-container .progress {
+    margin-bottom: 0px;
+    border-radius: 0px;
+    background-color: rgba(13, 11, 47, 0.15);
+    height: 15px;
+    margin-left: 20px;
+    width: 35%;
+}

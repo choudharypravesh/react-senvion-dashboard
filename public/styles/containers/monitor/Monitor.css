@@ -1,0 +1,666 @@
+
+.monitor-container {
+    background-color: #0c1f26;
+    color: #ffffff;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+   /* height: 100vh;*/
+    width: 100vw;
+    /*overflow: hidden;*/
+}
+
+
+.monitor-container .monitor {
+    position: relative;
+   /* top:3vh;*/
+}
+
+.monitor-container .farm-heading {
+    font-size: 30px;
+    color: #ffffff;
+    font-family: ProximaLight;
+    text-transform: capitalize;
+    margin-left: 7%;
+}
+
+.monitor-container .monitor-tables {
+    overflow-x: hidden;
+}
+
+.monitor-container table tbody tr {
+    color: #ffffff;
+}
+
+.monitor-container div, .monitor-container div:after, .monitor-container div:before {
+    /*box-sizing: border-box;
+    content: initial !important;*/
+}
+
+.monitor-container table thead tr {
+    color: #ffffff;
+}
+
+.monitor-container table thead tr th {
+    font-size: 16px !important;
+}
+
+.monitor-container .big
+{
+    position: absolute;
+    top:5%;
+    left:1%;
+    width:100%;
+    height: 10%;
+}
+.monitor-container .drop
+{
+    position: absolute;
+    top:2.5%;
+    right:0%;
+    z-index: 10;
+    width:10%;
+    border-radius: 0px !important;
+}
+.monitor-container .upli
+{
+    position: absolute;
+    top:2.5%;
+    left:12%;
+    font-size: 14px;
+    font-family:Arial;
+    width:100%;
+}
+.monitor-container .clock
+{
+    letter-spacing: 3px;
+    font-size: 23px;
+    font-family: ProximaLight;
+    width: 110px;
+}
+.monitor-container .Select {
+    width: 150px;
+}
+.monitor-container .Select-input {
+    color: #ffffff !important;
+    height: 25px;
+}
+.monitor-container .is-open > .Select-control {
+    background-color: rgb(46, 56, 60) ;
+}
+.monitor-container .Select-placeholder, .monitor-container  .Select--single > .Select-control .Select-value {
+    line-height: 29px;
+    background-color: rgb(46, 56, 60);
+}
+.monitor-container .Select-control {
+    background-color: rgb(46, 56, 60);
+    height: 30px;
+    border-color: inherit !important;
+    box-shadow: inherit !important;
+}
+.monitor-container .loading {
+    background-color: #0c1f26;
+}
+
+.monitor-container .loading svg{
+    margin-left: 50%;
+    fill: #ffffff;
+}
+
+.monitor-container .Select-value-label {
+    color: #ffffff !important;
+}
+
+.monitor-container table tr {
+    border-bottom: 0px !important;
+}
+
+.monitor-container .Select-option {
+    background-color: rgb(46, 56, 60);
+    color: #ffffff;
+    border: 1px solid rgb(46, 56, 60);
+}
+
+.monitor-container .Select-option:hover {
+    background-color: #737373 !important;
+    /*color: #333 !important;*/
+}
+
+.monitor-container .Select-option.is-focused {
+    background-color: #737373 !important;
+}
+
+.monitor-container .Select-option.is-selected {
+    background-color: #737373 !important;
+}
+
+.monitor-container .secondrow {
+}
+
+.monitor-container .warning
+{
+    margin:auto;
+    font-size:small;
+    color:white;
+}
+.monitor-container .image
+{
+    height: 2%;
+    width: 2%;
+    margin: auto;
+}
+
+/*PAGINATION*/
+
+.monitor-container .dots {
+    color: #666;
+}
+
+.monitor-container .dots:hover, .monitor-container .dots.active {
+    color: #ffffff !important;
+   /* zoom: 1.1;*/
+}
+
+
+.monitor-container .dots.clicked {
+    color: #0099ff !important;
+     zoom: 1.3;
+}
+
+.monitor-container div.rt-th
+{
+    text-align: left;
+    width: 100px !important;
+    flex: 100 0 auto !important;
+}
+.monitor-container .rt-td
+{
+    width: 75px !important;
+}
+.monitor-container .dimg
+{
+    float: right;
+    vertical-align: middle;
+
+}
+.monitor-container .ReactTable
+{
+    position: absolute;
+    top:15% !important;
+    left:0% !important;
+    padding: 8% 0% 0% 3% !important;
+    width: 48% !important;
+}
+.monitor-container .rt-tr-group
+{
+    width: 100px !important;
+}
+.monitor-container .rt-tbody
+{
+    width: 100px !important;
+    min-width: 600px;
+}
+.monitor-container .rt-table
+{
+    display: flex;
+    width: 100%;
+    border-collapse: collapse;
+    /* overflow: auto; */
+}
+/*.seticon
+{
+	position: absolute;
+	top:5%;
+	right: 4%;
+	z-index: 10;
+}*/
+.rt-thead-headerGroups
+{
+    min-width: 600px;
+}
+.monitor-container .rt-thead-header
+{
+    min-width: 600px;
+}
+.monitor-container .react-bs-container-body tr {
+    border-top-style: 0px !important;
+    padding: 1px !important;
+    height:42px !important;
+}
+
+/*
+.monitor-container .react-bs-container-body {
+    overflow: auto;
+}
+*/
+
+.monitor-container .react-bs-container-header tr {
+    border-bottom-style: hidden !important;
+    padding: 2px !important;
+}
+.monitor-container .react-bs-table {
+    border: 0px !important;
+
+    border-radius: 5px;
+    margin: 5px 10px;
+}
+.monitor-container .beacon{
+    position: absolute;
+    background-color:white;
+    height:7px;
+    width:7px;
+    border-radius:50%;
+    margin-top:0.5%;
+    -webkit-transform:translateX(-50%) translateY(-50%);
+}
+.monitor-container .beacon:before{
+    position: absolute;
+    content:"";
+    height:7px;
+    width:7px;
+    left:0;
+    top:0;
+    /*background-color:transparent;*/
+    border-radius:50%;
+    box-shadow:0px 0px 2px 2px white;
+    -webkit-animation:active 2s infinite linear;
+    animation:active 2s infinite linear;
+}
+.monitor-container .table>tbody>tr>td, .monitor-container .table>tbody>tr>th, .monitor-container .table>tfoot>tr>td, .monitor-container .table>tfoot>tr>th, .monitor-container .table>thead>tr>td, .monitor-container .table>thead>tr>th {
+    padding: 0% !important;
+    height:27.813;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border:0px;
+    font-size: small;
+}
+.monitor-container .react-bs-table {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px 10px;
+    font-size: xx-small !important;
+    margin-right: -10% !important;
+
+}
+.monitor-container .react-select-box-container {
+    position: relative ;
+    width: 100% ;
+    display: inline-block ;
+    /* border-radius: 4px; */
+    background-color: transparent !important;
+
+    text-align: left ;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3) ;
+}
+.monitor-container .react-select-box-empty .react-select-box-label {
+    color: white !important;
+}
+.monitor-container .react-select-box {
+    padding: 7% 0 !important;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    /* color: white; */
+    text-align: left;
+    background-color: transparent;
+}
+
+.monitor-container .react-select-box:after {
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+    top: 13px;
+    right: 13px;
+    border-top: 6px solid #7B8E9B;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+.monitor-container .react-select-box-label {
+    padding: 0 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    font-weight: 100 !important;
+    width: 80% !important;
+}
+.monitor-container .react-select-box-clear {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 35px;
+    height: 20px;
+    background-color: transparent !important;
+    text-indent: -9999em;
+    z-index: 3;
+    border: none;
+}
+.monitor-container .react-select-box-clear:before {
+    content: '\D7';
+    position: absolute;
+    top: 2px;
+    left: 9px !important;
+    z-index: 1;
+    background-color: transparent !important;
+    /* border-radius: 100%; */
+    font-size: 13px;
+    color: #fff;
+    line-height: 1;
+    width: 15px;
+    height: 15px;
+    text-indent: 0;
+
+    text-align: center;
+}
+.monitor-container .react-select-box-options {
+    margin: 2px 0 0;
+    position: absolute;
+    padding: 10px 0;
+    width: 9em;
+    top: 100%;
+    height: 13em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    left: 0;
+    z-index: 4;
+    background-color: #fff;
+    /* border-radius: 4px; */
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+}
+.monitor-container .react-select-box-option{
+    font-weight: 100 !important;
+}
+.monitor-container .react-select-box-empty .react-select-box-close {
+    display:none;
+}
+.monitor-container .react-bootstrap-table-page-btns-ul{
+    display:none !important;
+}
+
+.monitor-container .table1 .pagination, .monitor-container .table2 .pagination {
+    display: none;
+}
+
+.monitor-container .pagination-container {
+    position: fixed;
+    bottom: 3%;
+    left: 0;
+    right: 0;
+}
+
+@-webkit-keyframes active{
+    0%{
+        -webkit-transform:scale(.1);
+        opacity:1;
+    }
+    70%{
+        -webkit-transform:scale(2.5);
+        opacity:0;
+    }
+    100%{
+        opacity:0;
+    }
+}
+
+@keyframes active{
+    0%{
+        transform:scale(.1);
+        opacity:1;
+    }
+    70%{
+        transform:scale(2.5);
+        opacity:0;
+    }
+    100%{
+        opacity:0;
+    }
+}
+/*css for react-select-box*/
+.monitor-container .react-select-box-container {
+    position: relative;
+    width: 100%;
+    color:white;
+    font-family: font114280;
+    font-size: 20px;
+    display: inline-block;
+    /*border:1px solid white;*/
+    background-color: #000000;
+    /*border-radius: 4px;*/
+    text-align: left;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+}
+.monitor-container .react-select-box-container:hover{
+    background-color: rgba(125, 124, 124,0.5);
+}
+.monitor-container .react-select-box {
+    padding: 8% 0;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+}
+
+.monitor-container .react-select-box:focus {
+    outline: 0;
+    box-shadow: 0 0 4px #0493D1;
+}
+
+
+
+.monitor-container .react-select-box:after {
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 13px;
+    border-top: 6px solid #7B8E9B;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+.monitor-container .react-select-box-label,
+.monitor-container .react-select-box-option {
+    line-height: 16px;
+    font-family: Arial;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    color: #7B8E9B;
+}
+
+.monitor-container .react-select-box-label {
+    padding: 0 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+}
+
+.monitor-container .react-select-box-empty .react-select-box-label {
+    color: white;
+}
+
+.monitor-container .react-select-box-click-outside-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.monitor-container .react-select-box-clear {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 35px;
+    height: 20px;
+    background-color: #fff;
+    text-indent: -9999em;
+    z-index: 3;
+    border: none;
+
+}
+.monitor-container .react-select-box-clear:before {
+    content: '×';
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    z-index: 1;
+    background-color: #7B8E9B;
+    /*border-radius: 100%;*/
+    font-size: 13px;
+    color: #fff;
+    line-height: 1;
+    width: 15px;
+    height: 15px;
+    text-indent: 0;
+    text-align: center;
+    display:none;
+}
+
+.monitor-container .react-select-box-clear:hover,
+.monitor-container .react-select-box-clear:focus {
+    outline: 0;
+}
+
+.monitor-container .react-select-box-clear:hover:before,
+.monitor-container .react-select-box-clear:focus:before {
+    background-color: #0493D1;
+}
+
+.monitor-container .react-select-box-hidden {
+    display: none
+}
+
+.monitor-container .react-select-box-options-list {
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+}
+
+.monitor-container .react-select-box-option {
+    padding: 10px 20px;
+    margin: 0;
+    cursor: pointer;
+    display: block;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.monitor-container .react-select-box-option:hover {
+    color: #0493D1;
+    background-color: #f4f4f4;
+}
+
+.react-select-box-option-selected {
+    color: #CBD2D7;
+}
+
+.monitor-container .react-select-box-multi .react-select-box-option {
+    padding-left: 42px;
+    position: relative;
+}
+
+.monitor-container .react-select-box-multi .react-select-box-option:before {
+    content: ' ';
+    position: absolute;
+    line-height: 1;
+    text-align: center;
+    left: 20px;
+    top: 9px;
+    border-radius: 3px;
+    height: 12px;
+    width: 12px;
+    margin-right: 10px;
+    border: 1px solid #7B8E9B;
+    background: #f9f9f9;
+    vertical-align: middle;
+}
+
+.monitor-container .react-select-box-multi .react-select-box-option-selected:before {
+    content: '✓';
+}
+
+
+.monitor-container .react-select-box-multi .react-select-box-option-selected {
+    color: #1F3344;
+}
+
+.monitor-container .react-select-box-option:focus,
+.monitor-container .react-select-box-option-focused {
+    color: #0493D1;
+    outline: 0;
+    background-color: #DDE2E5;
+}
+
+.monitor-container .react-select-box-close {
+    color: #0493D1;
+    font-family: Arial;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    padding: 5px 0;
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.monitor-container .react-select-box-close:hover,
+.monitor-container .react-select-box-clo se:focus {
+    text-decoration: underline;
+}
+
+.monitor-container .react-select-box-empty .react-select-box-close {
+    color: #CBD2D7;
+}
+
+.monitor-container .react-select-box-native {
+    position: absolute;
+    left: -99999em;
+}
+.monitor-container .ion-alert-circled
+{
+    position: absolute;
+    top:50px;
+    right: 50px;
+}
+.monitor-container .react-select-box-close {
+    color: #0493D1;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    padding: 5px 0;
+    display:none !important;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.monitor-container .table1, .monitor-container .table2 {
+    width: 44%;
+}
+
+.monitor-container table thead tr th, .monitor-container table tbody  tr td {
+    cursor: inherit;
+}
+
+/*NO DATA*/
+
+.monitor-container .no-data {
+    position: absolute;
+    color: #ffffff;
+    font-size: 20px;
+    top: 27vh;
+    left: 3%;
+    right: 0%;
+    text-align: center;
+}

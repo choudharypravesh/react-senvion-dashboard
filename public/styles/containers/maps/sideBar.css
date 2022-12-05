@@ -1,0 +1,251 @@
+.side-info-map-container
+{
+    position: absolute;
+    top: 4%;
+    width: 17vw;
+    right: 2%;
+    padding: 15px;
+    color: #333;
+    font-size: 13px;
+    line-height: 20px;
+    border-radius: 5px;
+    background: #ffffff;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 6px;
+}
+@media only screen and (max-width: 1400px) {
+    .side-info-map-container
+    {
+        width: 25vw;
+    }
+}
+@media only screen and (max-width: 1680px) {
+    .side-info-map-container
+    {
+        width: 20vw;
+    }
+}
+@media only screen and (max-width: 1280px) {
+    .side-info-map-container
+    {
+        width: 30vw;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .side-info-map-container
+    {
+        width: 35vw;
+    }
+}
+
+
+.side-info-map-container #wind_turbine {
+    font-size: 25px;
+    line-height: 40px
+}
+
+.popup-header
+{
+    /* background-color: #205081; */
+    z-index: 2000000;
+    /* color: #ffffff; */
+    font-family: ProximaLight;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+    padding: 20px;
+    /* background: linear-gradient(#205081, #3179C4); */
+    /* border-radius: 4px 4px 0px 0px; */
+}
+
+.side-info-map-container hr {
+    margin: 0;
+}
+
+.side-info-map-container .progress-bar {
+    color: black;
+}
+
+.side-info-map-container table tr {
+    border-bottom: 0px !important;
+}
+
+.cross
+{
+
+    position: absolute;
+    top:2%;
+    right:1%;
+    font-size: 17px;
+    height:30px;
+    width:30px;
+    z-index: 2000000;
+    cursor: pointer;
+}
+
+.popup-content
+{
+    background-color: white;
+    z-index: 2000000;
+    padding: 10px;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.padding-top-bottom {
+    padding: 10px 0px;
+}
+
+.side-info-map-container .progress {
+    width: 150px;
+    margin-bottom: 0px;
+}
+
+.side-info-map-container .power-wind > div {
+    margin-bottom: 20px;
+}
+
+.big-date {
+    padding: 10px 0px;
+}
+
+li
+{
+    list-style: none;
+}
+.name2
+{
+    display:flex;
+    text-transform: capitalize;
+    margin-left:10px;
+    height:40px;
+    width:100%;
+
+}
+
+.primary-content {
+    color: #333;
+}
+
+.secondary-content {
+    line-height: 20px;
+}
+
+.name1
+{
+
+    text-transform: capitalize;
+    height: 40px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 1;
+
+}
+.name1 td{
+
+  width:50%;
+  padding-left:5%;
+}
+
+.farm1
+{
+    position: absolute;
+    top:90px;
+    left:35px;
+    height:40px;
+    width:250px;
+}
+.commission1
+{
+    position: absolute;
+    top:140px;
+    left:35px;
+    height:40px;
+    width:250px;
+}
+.service1
+{
+    position: absolute;
+    top:190px;
+    left:35px;
+    height:40px;
+    width:250px;
+}
+.scada1
+{
+
+
+    left:35px;
+
+    width:250px;
+}
+.cust1
+{
+    position: absolute;
+    top:380px;
+    left:35px;
+    height:40px;
+    width:250px;
+}
+
+.visit1
+{
+    position: absolute;
+    top:430px;
+    left:35px;
+    height:40px;
+    width:250px;
+}
+
+
+.para1
+{
+    margin-left: 35px;
+    height:30px;
+    width:250px;
+    text-align: left;
+}
+.power1
+{
+    position: absolute;
+    top:30px;
+    left:35px;
+    height:30px;
+    width:250px;
+    text-align: left;
+}
+.ws1
+{
+    position: absolute;
+    top:60px;
+    left:35px;
+    height:30px;
+    width:250px;
+    text-align: left;
+}
+.alarm1
+{
+    position: absolute;
+    top:90px;
+    left:35px;
+    height:30px;
+    width:250px;
+    text-align: left;
+}
+
+.gmnoprint,.gmnoprint a, .gmnoprint span {
+    padding-top: 20px;
+}
+.gm-style-mtc div div{
+  display: none;
+}
+.heading
+{
+  text-transform: capitalize;
+  width:100%;
+  font-size: 15px;
+  line-height: 1;
+}
+.count{
+    margin-left: 10px;
+}

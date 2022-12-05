@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/Map/Map.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">components/Map</a> Map.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.78% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>1/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.78% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>1/36</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import axios from 'axios'
+import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import fetch from "isomorphic-fetch";
+import _ from 'underscore'
+import classnames from 'classnames'
+&nbsp;
+const GettingStartedGoogleMap = withGoogleMap(<span class="fstat-no" title="function not covered" >pr</span>ops =&gt; (
+<span class="cstat-no" title="statement not covered" >    &lt;GoogleMap</span>
+        ref={props.onMapLoad}
+        defaultZoom={10}
+        defaultCenter={{ lat: 45.7077672, lng: -70.59371879 }}
+        center={props.center}
+        onClick={props.onMapClick}
+    &gt;
+        {props.markers.map(<span class="fstat-no" title="function not covered" >(m</span>arker, index) =&gt; (
+<span class="cstat-no" title="statement not covered" >            &lt;Marker</span>
+                {...marker}
+                onRightClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.onMarkerRightClick(index)}</span>
+            /&gt;
+        ))}
+    &lt;/GoogleMap&gt;
+));
+&nbsp;
+//TODO: need to cover map into redux approach
+class Map extends React.Component {
+<span class="fstat-no" title="function not covered" >    co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >        super(props)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.state = {</span>
+            markers: [],
+            selectedFarm: this.props.farm,
+            center: {lat: 45.7077672, lng: -70.59371879},
+            isNoTurbines:false
+        };
+<span class="cstat-no" title="statement not covered" >        this.loadTurbines = this.loadTurbines.bind(this)</span>
+    }
+<span class="fstat-no" title="function not covered" >    lo</span>adTurbines(farm){
+        var data = <span class="cstat-no" title="statement not covered" >{</span>
+            wind_farm: farm
+        }
+<span class="cstat-no" title="statement not covered" >        this.setState({isNoTurbines:false})</span>
+<span class="cstat-no" title="statement not covered" >        data = encodeURIComponent(JSON.stringify(data));</span>
+<span class="cstat-no" title="statement not covered" >        fetch(`/api/get/forecast/weather/map?data=`+data)</span>
+        .then(<span class="fstat-no" title="function not covered" >re</span>s =&gt; <span class="cstat-no" title="statement not covered" >res.json())</span>
+        .then(<span class="fstat-no" title="function not covered" >da</span>ta =&gt; {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            console.log(data.data)</span>
+            var response = <span class="cstat-no" title="statement not covered" >data.data;</span>
+<span class="cstat-no" title="statement not covered" >              if (response.length &gt; 0){</span>
+                  var updatedData = <span class="cstat-no" title="statement not covered" >[]</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  for(let i=0; i&lt;response.length; i++) {</span>
+                      var temp = <span class="cstat-no" title="statement not covered" >{</span>
+                          position: {
+                              lat: 45.7077672,
+                              lng: -70.59371879,
+                          },
+                          key: `Canada`+i,
+                          defaultAnimation: 2,
+                      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                      temp.position.lat = response[i].coordinate_latitude;</span>
+<span class="cstat-no" title="statement not covered" >                      temp.position.lng = response[i].coordinate_longitude;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                      updatedData.push(temp);</span>
+                  }
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  updatedData = _.map(updatedData, <span class="fstat-no" title="function not covered" >fu</span>nction(item) {</span>
+<span class="cstat-no" title="statement not covered" >                      item.position.lat = Number(item.position.lat);</span>
+<span class="cstat-no" title="statement not covered" >                      item.position.lng = Number(item.position.lng);</span>
+<span class="cstat-no" title="statement not covered" >                      return item;</span>
+                  })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  console.log("updated data 2")</span>
+<span class="cstat-no" title="statement not covered" >                  console.log(updatedData);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                  this.setState({ markers: updatedData, center: { lat: updatedData[0].position.lat, lng: updatedData[0].position.lng}});</span>
+              }
+              else{
+<span class="cstat-no" title="statement not covered" >                  this.setState({isNoTurbines: true});</span>
+              }
+&nbsp;
+        });
+    }
+<span class="fstat-no" title="function not covered" >    co</span>mponentDidMount() {
+<span class="cstat-no" title="statement not covered" >        if(!!this.state.selectedFarm){</span>
+<span class="cstat-no" title="statement not covered" >            this.loadTurbines(this.state.selectedFarm);</span>
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    re</span>nder() {
+        var plotMargins = <span class="cstat-no" title="statement not covered" >{</span>
+            marginBottom: "14px",
+            backgroundColor: '#ffffff',
+            border: '1px solid #ddd',
+            borderRadius: '4px',
+            padding: '1px',
+            width: this.props.width,
+            height: this.props.height,
+        }
+        var error=<span class="cstat-no" title="statement not covered" >{</span>
+            width:'100%',
+            textAlign :"center",
+&nbsp;
+            lineHeight:'300px'
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.state.isNoTurbines == false){</span>
+<span class="cstat-no" title="statement not covered" >            return (</span>
+                &lt;GettingStartedGoogleMap
+                    containerElement={
+                        &lt;div style={plotMargins} /&gt;
+                    }
+                    mapElement={
+                        &lt;div style={{ height: `100%` }} /&gt;
+                    }
+                    onMapLoad={_.noop}
+                    onMapClick={_.noop}
+                    markers={this.state.markers}
+                    center = {this.state.center}
+                    onMarkerRightClick={_.noop}
+                /&gt;
+            )
+        }
+        else{
+<span class="cstat-no" title="statement not covered" >            return(</span>
+                &lt;div style={error}&gt;
+                    No Turbine data available for this Farm
+                &lt;/div&gt;
+                )
+&nbsp;
+        }
+&nbsp;
+    }
+}
+&nbsp;
+export default Map;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 18 2017 16:27:35 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

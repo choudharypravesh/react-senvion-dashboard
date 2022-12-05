@@ -1,0 +1,41 @@
+.box-menu {
+    background-color: #205081;
+    color: white;
+    width: 15%;
+    text-align: center;
+    padding: 4%;
+    border-radius: 4px;
+    font-size: 25px;
+    margin-right: 3%;
+    height: 251px;
+    cursor: pointer;
+}
+
+.thumbnail {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    border:none;
+}
+
+.thumbnail:hover {
+    background-color: rgba(204, 204, 204, 0.31);
+    color: #ffffff;
+}
+
+.box-menu-container .title {
+    font-size: 19px;
+    ;
+}
+
+.caption-text {
+    padding: 9px;
+}
+
+.box-menu-container {
+    position: relative;
+    height: 90vh;
+}

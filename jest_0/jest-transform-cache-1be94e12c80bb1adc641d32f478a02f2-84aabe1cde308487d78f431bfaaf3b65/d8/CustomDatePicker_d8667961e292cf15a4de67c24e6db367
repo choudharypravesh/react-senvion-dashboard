@@ -1,0 +1,147 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _moment = require('moment');var _moment2 = _interopRequireDefault(_moment);
+var _classnames = require('classnames');var _classnames2 = _interopRequireDefault(_classnames);
+var _reactBootstrap = require('react-bootstrap');
+var _reactBootstrapDatePicker = require('react-bootstrap-date-picker');var _reactBootstrapDatePicker2 = _interopRequireDefault(_reactBootstrapDatePicker);
+require('./CustomDatePicker.css');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}var
+
+
+CustomDatePicker = function (_React$Component) {_inherits(CustomDatePicker, _React$Component);
+    function CustomDatePicker(props) {var _this;_classCallCheck(this, CustomDatePicker);
+        (_this = _possibleConstructorReturn(this, (CustomDatePicker.__proto__ || Object.getPrototypeOf(CustomDatePicker)).call(this, props)), _this),
+        _this.changeDate = _this.changeDate.bind(_this);
+        var disabled = [0];
+        _this.props.disabled ? disabled.push(_this.props.disabled) : disabled;
+        _this.state = {
+            selectedDate: _this.props.defaultValue ? _this.props.defaultValue : 1,
+            initialDate: _this.props.initialDate,
+            finalDate: _this.props.finalDate,
+            offsetDate: _this.props.offsetDate ? (0, _moment2.default)().diff(_this.props.offsetDate, 'days') : 0,
+            disabled: disabled };
+
+        _this.handleDateChangeInitial = _this.handleDateChangeInitial.bind(_this);
+        _this.handleDateChangeFinal = _this.handleDateChangeFinal.bind(_this);
+        _this.getDate = _this.getDate.bind(_this);return _this;
+    }_createClass(CustomDatePicker, [{ key: 'getDate', value: function getDate(
+
+        days, offsetDate) {
+            return (0, _moment2.default)().subtract(days, 'days').subtract(offsetDate, 'days').format('YYYY-MM-DD');
+        } }, { key: 'changeDate', value: function changeDate(
+
+        val)
+        {
+            var end = this.props.offsetDate ? this.props.offsetDate : (0, _moment2.default)().format('YYYY-MM-DD');
+            var start = (0, _moment2.default)(this.state.initialDate).format('YYYY-MM-DD');
+            var selectedDate = 0;
+            var offsetDate = this.state.offsetDate;
+            if (val == 'today') {
+                this.props.dateChange((0, _moment2.default)(), end);
+            } else
+            if (val == 'yesterday') {
+                start = this.getDate(1, offsetDate);
+                selectedDate = 6;
+                this.props.dateChange(start, end);
+            } else if (val == 'last7day') {
+                start = this.getDate(7, offsetDate);
+                selectedDate = 1;
+                this.props.dateChange(start, end);
+            } else
+            if (val == 'last30day') {
+                console.log("coming into last30day");
+                start = this.getDate(30, offsetDate);
+                selectedDate = 2;
+                this.props.dateChange(start, end);
+            } else
+            if (val == 'last90day') {
+                start = this.getDate(90, offsetDate);
+                selectedDate = 3;
+                this.props.dateChange(start, end);
+            } else
+            if (val == 'last180day') {
+                start = this.getDate(180, offsetDate);
+                selectedDate = 4;
+                this.props.dateChange(start, end);
+            } else
+            if (val == 'last360day') {
+                start = this.getDate(360, offsetDate);
+                selectedDate = 5;
+                this.props.dateChange(start, end);
+            }
+            this.setState({
+                selectedDate: selectedDate,
+                initialDate: start,
+                finalDate: end });
+
+        } }, { key: 'handleDateChangeInitial', value: function handleDateChangeInitial(
+        value, formattedValue) {
+            this.props.startOnChange(value, formattedValue);
+            var dateArray = formattedValue.toString().split("/");
+            var date = dateArray[2] + "-" + dateArray[0] + "-" + dateArray[1];
+            var date2 = dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0];
+            this.setState({
+                selectedDate: 0,
+                initialDate: date2 });
+
+        } }, { key: 'handleDateChangeFinal', value: function handleDateChangeFinal(
+        value, formattedValue) {
+            this.props.endOnChange(value, formattedValue);
+            var dateArray = formattedValue.toString().split("/");
+            var date = dateArray[2] + "-" + dateArray[0] + "-" + dateArray[1];
+            var date2 = dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0];
+            this.setState({
+                selectedDate: 0,
+                finalDate: date2 });
+
+        } }, { key: 'render', value: function render()
+
+
+        {var _this2 = this;
+            return (
+                _react2.default.createElement('div', { className: 'flex-container-nowrap' },
+                    _react2.default.createElement('div', null,
+                        _react2.default.createElement('a', { id: 'today', className: (0, _classnames2.default)('btn btn-xs h-text', { 'disabled': this.state.disabled.indexOf(0) != -1 }), onClick: function onClick() {_this2.changeDate('today');} }, 'Today'), '\xA0',
+                        _react2.default.createElement('a', { id: 'yesterday', className: (0, _classnames2.default)('btn btn-xs h-text', { 'selected': this.state.selectedDate === 6, 'disabled': this.state.disabled.indexOf(6) != -1 }), onClick: function onClick() {_this2.changeDate('yesterday');} }, 'Yesterday'), '\xA0',
+                        _react2.default.createElement('a', { id: 'last7', className: (0, _classnames2.default)('btn btn-xs h-text', { 'selected': this.state.selectedDate === 1, 'disabled': this.state.disabled.indexOf(1) != -1 }), onClick: function onClick() {_this2.changeDate('last7day');} }, 'Last 7 Days'), '\xA0',
+                        _react2.default.createElement('a', { id: 'last30', className: (0, _classnames2.default)('btn btn-xs h-text', { 'selected': this.state.selectedDate === 2, 'disabled': this.state.disabled.indexOf(2) != -1 }), onClick: function onClick() {_this2.changeDate('last30day');} }, 'Last 30 Days'), '\xA0',
+                        _react2.default.createElement('a', { id: 'last90', className: (0, _classnames2.default)('btn btn-xs h-text', { 'selected': this.state.selectedDate === 3, 'disabled': this.state.disabled.indexOf(3) != -1 }), onClick: function onClick() {_this2.changeDate('last90day');} }, 'Last 90 Days'), '\xA0',
+                        _react2.default.createElement('a', { id: 'last180', className: (0, _classnames2.default)('btn btn-xs h-text', { 'selected': this.state.selectedDate === 4, 'disabled': this.state.disabled.indexOf(4) != -1 }), onClick: function onClick() {_this2.changeDate('last180day');} }, 'Last 180 Days'), '\xA0',
+                        _react2.default.createElement('a', { id: 'last360', className: (0, _classnames2.default)('btn btn-xs h-text', { 'selected': this.state.selectedDate === 5, 'disabled': this.state.disabled.indexOf(5) != -1 }), onClick: function onClick() {_this2.changeDate('last360day');} }, 'Last 360 Days'), '\xA0'),
+
+                    !this.props.noCalendar ?
+                    _react2.default.createElement('div', { className: 'flex-container-nowrap flex-end-h date-picker' },
+                        _react2.default.createElement('div', { className: '' },
+                            _react2.default.createElement(_reactBootstrap.FormGroup, null,
+                                _react2.default.createElement(_reactBootstrapDatePicker2.default, {
+                                    id: 'example-datepicker',
+                                    value: this.state.initialDate,
+                                    onChange: this.handleDateChangeInitial,
+                                    showClearButton: false,
+                                    dateFormat: 'DD/MM/YYYY' }))),
+
+
+
+                        _react2.default.createElement('div', null, '\xA0\xA0To\xA0\xA0'),
+                        _react2.default.createElement('div', { className: '' },
+                            _react2.default.createElement(_reactBootstrap.FormGroup, null,
+                                _react2.default.createElement(_reactBootstrapDatePicker2.default, {
+                                    id: 'example-datepicker',
+                                    value: this.state.finalDate,
+                                    onChange: this.handleDateChangeFinal,
+                                    showClearButton: false,
+                                    dateFormat: 'DD/MM/YYYY' }))),
+
+
+
+                        _react2.default.createElement('div', { className: 'date-go-button' },
+                            _react2.default.createElement('button', { onClick: this.props.reloadGraphs, className: 'btn btn-success btn-xs' }, 'Go'))) :
+
+
+
+
+                    _react2.default.createElement('span', null)));
+
+
+
+        } }]);return CustomDatePicker;}(_react2.default.Component);exports.default =
+
+CustomDatePicker;
